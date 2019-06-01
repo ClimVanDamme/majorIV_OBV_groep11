@@ -4,12 +4,25 @@ exports.create = (req, res) => {
   if (!req.body.title) {
     return res.status(500).send({ err: "title can not be empty" });
   }
+  if (!req.body.description) {
+    return res.status(500).send({ err: "description can not be empty" });
+  }
+  if (!req.body.date) {
+    return res.status(500).send({ err: "date can not be empty" });
+  }
+  if (!req.body.category) {
+    return res.status(500).send({ err: "category can not be empty" });
+  }
+  if (!req.body.length) {
+    return res.status(500).send({ err: "length can not be empty" });
+  }
 
   const show = new Show({
     title: req.body.title,
     description: req.body.description,
-    image: req.body.image,
-    tag: req.body.tag
+    date: req.body.date,
+    category: req.body.category,
+    length: req.body.length
   });
 
   show
@@ -60,8 +73,9 @@ exports.update = async (req, res) => {
       {
         title: req.body.title,
         description: req.body.description,
-        image: req.body.image,
-        tag: req.body.tag
+        date: req.body.date,
+        category: req.body.category,
+        length: req.body.length
       },
       {
         new: true

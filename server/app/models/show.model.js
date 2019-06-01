@@ -4,8 +4,9 @@ const ShowSchema = mongoose.Schema(
   {
     title: String,
     description: String,
-    image: String,
-    tag: String
+    date: Date,
+    category: String,
+    length: Number
   },
   {
     timestamps: true
