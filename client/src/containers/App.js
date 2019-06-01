@@ -7,6 +7,7 @@ import Shows from "./Shows";
 import { ROUTES } from "../constants";
 import Login from "./Login";
 import Register from "./Register";
+import ShowDetail from "./ShowDetail";
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
       <main className={styles.layout}>
         <Switch>
           <Route path={ROUTES.chat} exact strict component={Chat} />
-          <Route path={ROUTES.shows} component={Shows} />
+          <Route path={ROUTES.shows} exact strict component={Shows} />
+          <Route path={ROUTES.showdetail} component={ShowDetail} />
           <Route path={ROUTES.login} component={Login} />
           <Route path={ROUTES.register} component={Register} />
         </Switch>
