@@ -9,6 +9,7 @@ class ShowStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.api = new Api(`shows`);
+    this.characterApi = new Api(`characters`);
     this.getAll();
   }
 
@@ -24,6 +25,31 @@ class ShowStore {
   //     .create(newDrink)
   //     .then(drinkValues => newDrink.updateFromServer(drinkValues));
   // };
+
+  getById = id => {
+    //wanneer dit loopt, genereert de app heel veel voorstellingen
+    //moeten wel eerst pullen van de server zodat we rechtstreeks een link met id in de zoekbalk kunnen plakken
+    // this.getAll();
+
+    return this.shows.find(check => check.id === id);
+  };
+
+  _getAll = async () => {
+    const jsonData = await this.api.getAll();
+
+    //wanneer deze code loopt, genereert de app heel veel voorstellingen
+
+    // runInAction(
+    //   () =>
+    //     (this.shows = this.shows.concat(
+    //       jsonData.map(values => {
+    //         const show = new Show();
+    //         show.setValues(values);
+    //         return show;
+    //       })
+    //     ))
+    // );
+  };
 
   _addShow = values => {
     console.log(values);

@@ -2,26 +2,29 @@ import uuid from "uuid";
 import { decorate, observable, action } from "mobx";
 
 class Show {
-  constructor(title, description, image, tag, id = uuid.v4()) {
+  constructor(title, description, date, category, length, id = uuid.v4()) {
     this.id = id;
     this.title = title;
     this.description = description;
-    this.image = image;
-    this.tag = tag;
+    this.date = date;
+    this.category = category;
+    this.length = length;
   }
 
   setId = value => (this.id = value);
   setTitle = value => (this.title = value);
   setDescription = value => (this.description = value);
-  setImage = value => (this.image = value);
-  setTag = value => (this.tag = value);
+  setDate = value => (this.date = value);
+  setCategory = value => (this.category = value);
+  setLength = value => (this.length = value);
 
   setValues = values => {
     this.setId(values._id);
     this.setTitle(values.title);
     this.setDescription(values.description);
-    this.setImage(values.image);
-    this.setTag(values.tag);
+    this.setDate(values.date);
+    this.setCategory(values.category);
+    this.setLength(values.length);
   };
 
   // get values() {

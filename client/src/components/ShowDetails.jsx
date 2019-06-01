@@ -1,26 +1,16 @@
 import React from "react";
-import { inject, PropTypes, observer } from "mobx-react";
+import { PropTypes } from "prop-types";
 
-const ShowDetails = ({ showStore, id }) => {
-  const { shows } = showStore;
+const ShowDetails = ({ show }) => {
   return (
     <div>
-      {shows.map(show =>
-        show.id === id ? (
-          <div key={show.title}>
-            <p>{show.title}</p>
-            <p>{show.description}</p>
-          </div>
-        ) : (
-          console.log(`geen match`)
-        )
-      )}
+      <p>{show.title}</p>
     </div>
   );
 };
 
 ShowDetails.propTypes = {
-  showStore: PropTypes.observableObject.isRequired
+  show: PropTypes.object.isRequired
 };
 
-export default inject(`showStore`)(observer(ShowDetails));
+export default ShowDetails;
