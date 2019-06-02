@@ -1,21 +1,21 @@
 import { decorate, observable, configure, runInAction } from "mobx";
-import Show from "../models/Show";
+import Character from "../models/Character";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
-class ShowStore {
-  shows = [];
+class CharacterStore {
+  characters = [];
 
   constructor(rootStore) {
     this.rootStore = rootStore;
-    this.api = new Api(`shows`);
+    this.api = new Api(`characters`);
     this.getAll();
   }
 
   //SHOWS
 
   getAll = () => {
-    this.api.getAll().then(d => d.forEach(this._addShow));
+    this.api.getAll().then(d => d.forEach(this._addCharacter));
   };
 
   // addDrink = data => {
@@ -32,7 +32,7 @@ class ShowStore {
     //moeten wel eerst pullen van de server zodat we rechtstreeks een link met id in de zoekbalk kunnen plakken
     // this.getAll();
 
-    return this.shows.find(check => check.id === id);
+    return this.characters.find(check => check.id === id);
   };
 
   _getAll = async () => {
@@ -50,27 +50,19 @@ class ShowStore {
     // );
   };
 
-  _addShow = values => {
+  _addCharacter = values => {
     // console.log(values);
-    const show = new Show(this.rootStore);
-    show.setValues(values);
-    runInAction(() => this.shows.push(show));
+    const character = new Character();
+    character.setValues(values);
+    runInAction(() => this.characters.push(character));
   };
 
-  // updateDrink = drink => {
-  //   this.api
-  //     .update(drink)
-  //     .then(drinkValues => drink.updateFromServer(drinkValues));
-  // };
-
-  // deleteDrink = drink => {
-  //   this.drinks.remove(drink);
-  //   this.api.delete(drink);
-  // };
+  resolveCharacters = showId =>
+    this.characters.filter(character => character.showId === showId);
 }
 
-decorate(ShowStore, {
-  shows: observable
+decorate(CharacterStore, {
+  characters: observable
 });
 
-export default ShowStore;
+export default CharacterStore;

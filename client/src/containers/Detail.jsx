@@ -3,8 +3,7 @@ import React from "react";
 // import stylesLayout from "../styles/layout.module.css";
 import TabBar from "../components/TabBar";
 import ShowDetails from "../components/ShowDetails";
-// import { PropTypes } from "prop-types";
-import { inject, observer } from "mobx-react";
+import { inject, PropTypes, observer } from "mobx-react";
 
 const Detail = ({ showStore, id }) => {
   const show = showStore.getById(id);
@@ -18,8 +17,8 @@ const Detail = ({ showStore, id }) => {
   );
 };
 
-// Detail.propTypes = {
-//   showStore: PropTypes.observableObject.isRequired
-// };
+Detail.propTypes = {
+  showStore: PropTypes.observableObject.isRequired
+};
 
 export default inject(`showStore`)(observer(Detail));

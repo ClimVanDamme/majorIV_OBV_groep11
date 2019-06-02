@@ -1,14 +1,10 @@
 import uuid from "uuid";
-import { decorate, observable, action } from "mobx";
+import { decorate, observable, action, computed } from "mobx";
 
 class Show {
-  constructor(title, description, date, category, length, id = uuid.v4()) {
+  constructor(store, id = uuid.v4()) {
     this.id = id;
-    this.title = title;
-    this.description = description;
-    this.date = date;
-    this.category = category;
-    this.length = length;
+    this.store = store;
   }
 
   setId = value => (this.id = value);
@@ -27,22 +23,36 @@ class Show {
     this.setLength(values.length);
   };
 
-  // get values() {
-  //   return { name: this.name, price: this.price };
-  // }
+  get characters() {
+    return this.store.characterStore.resolveCharacters(this.showId);
+  }
+
+  get values() {
+    return {
+      title: this.title,
+      description: this.description,
+      date: this.date,
+      category: this.category,
+      length: this.length
+    };
+  }
 }
 
 decorate(Show, {
   id: observable,
   title: observable,
   description: observable,
-  image: observable,
-  tag: observable,
+  date: observable,
+  category: observable,
+  length: observable,
   setId: action,
   setTitle: action,
   setDescription: action,
-  setImage: action,
-  setTag: action
+  setDate: action,
+  setCategory: action,
+  setLength: action,
+  values: computed,
+  characters: computed
 });
 
 export default Show;
