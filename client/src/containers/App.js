@@ -15,7 +15,7 @@ class App extends Component {
       <main className={styles.layout}>
         <Switch>
           <Route path={ROUTES.chat} exact strict component={Chat} />
-          <Route path={ROUTES.shows} exact strict component={Shows} />
+          <Route path={ROUTES.shows} exact component={Shows} />
           <Route
             path={ROUTES.showdetail}
             render={({ match }) => <Detail id={match.params.id} />}

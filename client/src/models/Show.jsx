@@ -24,7 +24,7 @@ class Show {
   };
 
   get characters() {
-    return this.store.characterStore.resolveCharacters(this.showId);
+    return this.store.characterStore.resolveCharacters(this.id);
   }
 
   get values() {

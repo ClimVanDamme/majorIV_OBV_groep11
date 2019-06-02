@@ -39,7 +39,8 @@ class Character {
     this.setStory(values.story);
     this.setSummary(values.summary);
     this.setQuote(values.quote);
-    this.setShowId(values.showId);
+    //show_id want staat zo op de server
+    this.setShowId(values.show_id);
   };
 
   get values() {
