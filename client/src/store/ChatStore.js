@@ -1,21 +1,21 @@
 import { decorate, observable, configure, runInAction } from "mobx";
-import Show from "../models/Show";
+import Chat from "../models/Chat";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
-class ShowStore {
-  shows = [];
+class ChatStore {
+  chats = [];
 
   constructor(rootStore) {
     this.rootStore = rootStore;
-    this.api = new Api(`shows`);
+    this.api = new Api(`chats`);
     this.getAll();
   }
 
   //SHOWS
 
   getAll = () => {
-    this.api.getAll().then(d => d.forEach(this._addShow));
+    this.api.getAll().then(d => d.forEach(this._addChat));
   };
 
   // addDrink = data => {
@@ -32,7 +32,7 @@ class ShowStore {
     //moeten wel eerst pullen van de server zodat we rechtstreeks een link met id in de zoekbalk kunnen plakken
     // this.getAll();
 
-    return this.shows.find(check => check.id === id);
+    return this.chats.find(check => check.id === id);
   };
 
   _getAll = async () => {
@@ -50,29 +50,16 @@ class ShowStore {
     // );
   };
 
-  _addShow = values => {
+  _addChat = values => {
     // console.log(values);
-    const show = new Show(this.rootStore);
-    show.setValues(values);
-    runInAction(() => this.shows.push(show));
+    const chat = new Chat(this.rootStore);
+    chat.setValues(values);
+    runInAction(() => this.chats.push(chat));
   };
-
-  // updateDrink = drink => {
-  //   this.api
-  //     .update(drink)
-  //     .then(drinkValues => drink.updateFromServer(drinkValues));
-  // };
-
-  // deleteDrink = drink => {
-  //   this.drinks.remove(drink);
-  //   this.api.delete(drink);
-  // };
-
-  resolveShow = showId => this.shows.find(show => show.id === showId);
 }
 
-decorate(ShowStore, {
-  shows: observable
+decorate(ChatStore, {
+  chats: observable
 });
 
-export default ShowStore;
+export default ChatStore;

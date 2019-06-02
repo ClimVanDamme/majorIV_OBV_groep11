@@ -1,5 +1,6 @@
 import ShowStore from "./ShowStore";
 import CharacterStore from "./CharacterStore";
+import ChatStore from "./ChatStore";
 import UiStore from "./UiStore";
 
 class Store {
@@ -7,6 +8,7 @@ class Store {
     this.uiStore = new UiStore(this);
     this.showStore = new ShowStore(this);
     this.characterStore = new CharacterStore(this);
+    this.chatStore = new ChatStore(this);
   }
 }
 

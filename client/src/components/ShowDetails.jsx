@@ -6,6 +6,7 @@ const ShowDetails = ({ show }) => {
   return (
     <div>
       <p>{show.title}</p>
+      <p>{show.description}</p>
       {show.characters.map(character => (
         <CharacterQuote key={character.name} character={character} />
       ))}

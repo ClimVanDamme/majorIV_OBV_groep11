@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import styles from "./App.module.css";
 
-import Chat from "./Chat";
+import ChatList from "./ChatList";
 import Shows from "./Shows";
 import { ROUTES } from "../constants";
 import Login from "./Login";
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <main className={styles.layout}>
         <Switch>
-          <Route path={ROUTES.chat} exact strict component={Chat} />
+          <Route path={ROUTES.chat} exact strict component={ChatList} />
           <Route path={ROUTES.shows} exact component={Shows} />
           <Route
             path={ROUTES.showdetail}
