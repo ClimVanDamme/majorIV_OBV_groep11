@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 const ChatListItem = ({ chat }) => {
   return (
     <div>
-      <p>{chat.show.title}</p>
+      <Link to={`/${chat.id}`}>{chat.show.title}</Link>
     </div>
   );
 };

@@ -29,6 +29,8 @@ require("./app/routes/auth.routes.js")(app);
 require("./app/routes/shows.routes.js")(app);
 require("./app/routes/characters.routes.js")(app);
 require("./app/routes/chats.routes.js")(app);
+require("./app/routes/messages.routes.js")(app);
+require("./app/routes/connections.routes.js")(app);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build/", "index.html"));

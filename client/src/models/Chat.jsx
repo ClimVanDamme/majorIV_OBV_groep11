@@ -24,6 +24,10 @@ class Chat {
   get show() {
     return this.store.showStore.resolveShow(this.showId);
   }
+
+  get messages() {
+    return this.store.messageStore.resolveMessages(this.id);
+  }
 }
 
 decorate(Chat, {
@@ -32,7 +36,8 @@ decorate(Chat, {
   setId: action,
   setShowId: action,
   values: computed,
-  show: computed
+  show: computed,
+  messages: computed
 });
 
 export default Chat;

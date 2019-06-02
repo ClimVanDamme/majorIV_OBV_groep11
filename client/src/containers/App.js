@@ -8,6 +8,7 @@ import { ROUTES } from "../constants";
 import Login from "./Login";
 import Register from "./Register";
 import Detail from "./Detail";
+import Chatroom from "./Chatroom";
 
 class App extends Component {
   render() {
@@ -15,6 +16,10 @@ class App extends Component {
       <main className={styles.layout}>
         <Switch>
           <Route path={ROUTES.chat} exact strict component={ChatList} />
+          <Route
+            path={ROUTES.chatroom}
+            render={({ match }) => <Chatroom id={match.params.id} />}
+          />
           <Route path={ROUTES.shows} exact component={Shows} />
           <Route
             path={ROUTES.showdetail}
