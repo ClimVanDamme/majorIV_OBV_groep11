@@ -3,6 +3,14 @@ class Api {
     this.entity = entity;
   }
 
+  getById = async id => {
+    const r = await fetch(`/api/${this.entity}/${id}`);
+    if (r.status === 200) {
+      return r.json();
+    }
+    return Promise.reject();
+  };
+
   getAll = async () => {
     const r = await fetch(`/api/${this.entity}`);
     return await r.json();

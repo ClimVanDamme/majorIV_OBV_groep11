@@ -1,4 +1,4 @@
-import { decorate, observable, configure, runInAction } from "mobx";
+import { decorate, observable, configure, runInAction, action } from "mobx";
 import Chat from "../models/Chat";
 import Api from "../api";
 
@@ -17,15 +17,6 @@ class ChatStore {
   getAll = () => {
     this.api.getAll().then(d => d.forEach(this._addChat));
   };
-
-  // addDrink = data => {
-  //   const newDrink = new Drink();
-  //   newDrink.updateFromServer(data);
-  //   this.drinks.push(newDrink);
-  //   this.api
-  //     .create(newDrink)
-  //     .then(drinkValues => newDrink.updateFromServer(drinkValues));
-  // };
 
   getById = id => {
     //wanneer dit loopt, genereert de app heel veel voorstellingen
@@ -59,7 +50,8 @@ class ChatStore {
 }
 
 decorate(ChatStore, {
-  chats: observable
+  chats: observable,
+  addChat: action
 });
 
 export default ChatStore;

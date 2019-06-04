@@ -5,7 +5,7 @@ import { PropTypes } from "prop-types";
 const ChatListItem = ({ chat }) => {
   return (
     <div>
-      <Link to={`/${chat.id}`}>{chat.show.title}</Link>
+      <Link to={`/chats/${chat.id}`}>{chat.show.title}</Link>
     </div>
   );
 };

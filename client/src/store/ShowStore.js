@@ -1,10 +1,17 @@
-import { decorate, observable, configure, runInAction } from "mobx";
+import {
+  decorate,
+  observable,
+  configure,
+  runInAction,
+  computed,
+  action
+} from "mobx";
 import Show from "../models/Show";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 class ShowStore {
-  shows = [];
+  _shows = [];
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -27,34 +34,23 @@ class ShowStore {
   //     .then(drinkValues => newDrink.updateFromServer(drinkValues));
   // };
 
-  getById = id => {
-    //wanneer dit loopt, genereert de app heel veel voorstellingen
-    //moeten wel eerst pullen van de server zodat we rechtstreeks een link met id in de zoekbalk kunnen plakken
-    // this.getAll();
-
-    return this.shows.find(check => check.id === id);
-  };
-
-  _getAll = async () => {
-    // const jsonData = await this.api.getAll();
-    //wanneer deze code loopt, genereert de app heel veel voorstellingen
-    // runInAction(
-    //   () =>
-    //     (this.shows = this.shows.concat(
-    //       jsonData.map(values => {
-    //         const show = new Show();
-    //         show.setValues(values);
-    //         return show;
-    //       })
-    //     ))
-    // );
+  findById = id => {
+    console.log(id, `id in findById`);
+    console.log(this._shows);
+    console.log(`findById`);
+    const show = this._shows.find(show => show.id === id);
+    if (!show) {
+      console.log(`no show`);
+      this.api.getById(id).then(this._addShow);
+    }
+    return show;
   };
 
   _addShow = values => {
-    // console.log(values);
+    console.log(values, `values in _addShow`);
     const show = new Show(this.rootStore);
     show.setValues(values);
-    runInAction(() => this.shows.push(show));
+    runInAction(() => this._shows.push(show));
   };
 
   // updateDrink = drink => {
@@ -68,11 +64,19 @@ class ShowStore {
   //   this.api.delete(drink);
   // };
 
-  resolveShow = showId => this.shows.find(show => show.id === showId);
+  resolveShow = showId => this._shows.find(show => show.id === showId);
+
+  get shows() {
+    // console.log(this._shows);
+    return this._filter
+      ? this._shows.filter(check => check.category === this._filter)
+      : this._shows;
+  }
 }
 
 decorate(ShowStore, {
-  shows: observable
+  _shows: observable,
+  shows: computed
 });
 
 export default ShowStore;

@@ -1,8 +1,10 @@
 import React from "react";
 import { PropTypes } from "prop-types";
 import CharacterQuote from "./CharacterQuote";
+// import { observer } from "mobx-react";
 
 const ShowDetails = ({ show }) => {
+  console.log(show, `show in ShowDetails component`);
   return (
     <div>
       <p>{show.title}</p>
