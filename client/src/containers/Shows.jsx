@@ -3,11 +3,13 @@ import React from "react";
 // import stylesLayout from "../styles/layout.module.css";
 import TabBar from "../components/TabBar";
 import ShowList from "../components/ShowList";
+import ProfileButton from "../components/ProfileButton";
 
 const Shows = () => {
   return (
     <>
       <section>
+        <ProfileButton />
         <ShowList />
       </section>
       <TabBar />

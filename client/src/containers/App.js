@@ -9,6 +9,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Detail from "./Detail";
 import Chatroom from "./Chatroom";
+import Profile from "./Profile";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             path={ROUTES.showdetail}
             render={({ match }) => <Detail id={match.params.id} />}
           />
+          <Route path={ROUTES.profile} component={Profile} />
           <Route path={ROUTES.login} component={Login} />
           <Route path={ROUTES.register} component={Register} />
         </Switch>
