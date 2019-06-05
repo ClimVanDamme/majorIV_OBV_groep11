@@ -70,7 +70,7 @@ class RegisterForm extends Component {
                 type="radio"
                 id="gender-male"
                 name="gender"
-                value="male"
+                value="man"
                 onChange={this.handleChange}
               />
               <label htmlFor="gender-male">Man</label>
@@ -78,7 +78,7 @@ class RegisterForm extends Component {
                 type="radio"
                 id="gender-female"
                 name="gender"
-                value="female"
+                value="vrouw"
                 onChange={this.handleChange}
               />
               <label htmlFor="gender-female">Vrouw</label>

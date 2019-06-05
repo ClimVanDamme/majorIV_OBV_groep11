@@ -13,6 +13,9 @@ const Profile = ({ uiStore }) => {
           <h1>Profiel</h1>
           <h2>{uiStore.authUser.firstname}</h2>
           <p>{uiStore.authUser.lastname}</p>
+          <p>{uiStore.authUser.gender}</p>
+          <p>{uiStore.authUser.birthday}</p>
+
           <button onClick={uiStore.logout}>uitloggen</button>
         </section>
       ) : (
