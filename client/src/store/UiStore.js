@@ -18,6 +18,8 @@ class UiStore {
       .login(username, password)
       .then(() => {
         this.setUser(getUserFromCookie());
+        console.log(this.authUser);
+
         Promise.resolve();
       })
       .catch(() => {
@@ -26,7 +28,15 @@ class UiStore {
       });
   };
 
-  register = (name, email, pwd) => this.authService.register(name, email, pwd);
+  register = (firstname, lastname, email, pwd, gender, birthdate) =>
+    this.authService.register(
+      firstname,
+      lastname,
+      email,
+      pwd,
+      gender,
+      birthdate
+    );
 
   logout = () => {
     this.authService.logout().then(() => this.setUser(null));

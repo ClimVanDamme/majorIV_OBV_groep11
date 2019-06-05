@@ -27,16 +27,19 @@ class Auth {
     });
   };
 
-  register = (name, email, password) => {
+  register = (firstname, lastname, email, password, gender, birthdate) => {
     return fetch(`/auth/register`, {
       method: `POST`,
       headers: {
         "content-type": `application/json`
       },
       body: JSON.stringify({
-        name,
+        firstname,
+        lastname,
         email,
-        password
+        password,
+        gender,
+        birthdate
       })
     }).then(res => {
       if (res.status === 200) {

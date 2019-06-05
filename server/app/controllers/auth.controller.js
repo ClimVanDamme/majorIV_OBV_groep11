@@ -23,8 +23,8 @@ exports.login = async (req, res) => {
     } else {
       const isPasswordCorrect = await user.validPassword(password);
       if (isPasswordCorrect) {
-        const { _id, name, roles } = user;
-        const token = jwt.sign({ _id, name, roles }, process.env.SECRET, {
+        const { _id } = user;
+        const token = jwt.sign({ _id }, process.env.SECRET, {
           expiresIn: "24h"
         });
         const parts = token.split(".");
@@ -55,8 +55,15 @@ exports.logout = (req, res) => {
 };
 
 exports.register = (req, res) => {
-  const { email, password, name, gender, birthdate } = req.body;
-  const user = new User({ email, password, name, gender, birthdate });
+  const { email, password, firstname, lastname, gender, birthdate } = req.body;
+  const user = new User({
+    email,
+    password,
+    firstname,
+    lastname,
+    gender,
+    birthdate
+  });
   user.save(err => {
     if (err) {
       res.status(500).send("Error registering new user please try again.");

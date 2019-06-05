@@ -7,7 +7,15 @@ import stylesForm from "../../styles/form.module.css";
 class RegisterForm extends Component {
   constructor() {
     super();
-    this.state = { email: ``, pwd: ``, pwd2: ``, name: `` };
+    this.state = {
+      email: ``,
+      pwd: ``,
+      pwd2: ``,
+      firstname: ``,
+      lastname: ``,
+      gender: ``,
+      birthdate: ``
+    };
   }
 
   handleChange = e => {
@@ -20,28 +28,75 @@ class RegisterForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { uiStore, history } = this.props;
-    const { email, pwd, name } = this.state;
-    uiStore.register(name, email, pwd).then(() => {
-      history.push(ROUTES.login);
-    });
+    const { email, pwd, firstname, lastname, gender, birthdate } = this.state;
+    uiStore
+      .register(firstname, lastname, email, pwd, gender, birthdate)
+      .then(() => {
+        history.push(ROUTES.login);
+      });
   };
 
   render() {
-    const { email, pwd, pwd2, name } = this.state;
+    const { email, pwd, pwd2, firstname, lastname, birthdate } = this.state;
     return (
       <>
         <form onSubmit={this.handleSubmit} className={stylesForm.form}>
-          <label htmlFor="email">
-            Name
+          <label htmlFor="firstname">
+            Voornaam
             <input
-              type="test"
-              name="name"
-              id="name="
-              value={name}
+              type="text"
+              name="firstname"
+              id="firstname="
+              value={firstname}
               className={stylesForm.form_input}
               onChange={this.handleChange}
             />
           </label>
+          <label htmlFor="lastname">
+            Achternaam
+            <input
+              type="text"
+              name="lastname"
+              id="lastname="
+              value={lastname}
+              className={stylesForm.form_input}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label htmlFor="gender">
+            Geslacht
+            <div>
+              <input
+                type="radio"
+                id="gender-male"
+                name="gender"
+                value="male"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="gender-male">Man</label>
+              <input
+                type="radio"
+                id="gender-female"
+                name="gender"
+                value="female"
+                onChange={this.handleChange}
+              />
+              <label htmlFor="gender-female">Vrouw</label>
+            </div>
+          </label>
+
+          <label htmlFor="birthdate">
+            Geboortedatum
+            <input
+              type="date"
+              name="birthdate"
+              id="birthdate="
+              value={birthdate}
+              className={stylesForm.form_input}
+              onChange={this.handleChange}
+            />
+          </label>
+
           <label htmlFor="email">
             Email
             <input
@@ -53,8 +108,8 @@ class RegisterForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label htmlFor="username">
-            Password
+          <label htmlFor="password">
+            Wachtwoord
             <input
               type="password"
               name="pwd"
@@ -64,8 +119,8 @@ class RegisterForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label htmlFor="username">
-            Repeat password
+          <label htmlFor="password">
+            Herhaal wachtwoord
             <input
               type="password"
               name="pwd2"

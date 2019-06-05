@@ -12,7 +12,7 @@ const LoginForm = ({ uiStore, history }) => {
   const handleSubmit = e => {
     e.preventDefault();
     uiStore.login(emailInput.current.value, pwdInput.current.value).then(() => {
-      history.push(ROUTES.admin);
+      history.push(ROUTES.chat);
     });
   };
 
@@ -21,17 +21,29 @@ const LoginForm = ({ uiStore, history }) => {
       <form onSubmit={handleSubmit} className={stylesForm.form}>
         <label htmlFor="email">
           Email
-          <input type="email" name="email" id="email=" ref={emailInput} className={stylesForm.form_input}/>
+          <input
+            type="email"
+            name="email"
+            id="email="
+            ref={emailInput}
+            className={stylesForm.form_input}
+          />
         </label>
         <label htmlFor="username">
           Password
-          <input type="password" name="password" id="password" ref={pwdInput} className={stylesForm.form_input}/>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            ref={pwdInput}
+            className={stylesForm.form_input}
+          />
         </label>
-        <input type="submit" value="Login" className={stylesForm.button}/>
+        <input type="submit" value="Login" className={stylesForm.button} />
       </form>
 
       <p className={stylesForm.metaAction}>
-          No account? <Link to={ROUTES.register}>Sign up!</Link>
+        No account? <Link to={ROUTES.register}>Sign up!</Link>
       </p>
     </>
   );

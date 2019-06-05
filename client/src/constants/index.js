@@ -1,5 +1,6 @@
 export const ROUTES = {
-  chat: `/`,
+  landing: `/`,
+  chat: `/chats`,
   chatroom: `/chats/:id`,
   shows: `/shows`,
   showdetail: `/shows/:id`,
