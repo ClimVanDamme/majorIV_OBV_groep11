@@ -9,6 +9,7 @@ const ShowDetails = ({ show }) => {
     <div>
       <p>{show.title}</p>
       <p>{show.description}</p>
+      <button>Geef mij een personage</button>
       {show.characters.map(character => (
         <CharacterQuote key={character.name} character={character} />
       ))}
