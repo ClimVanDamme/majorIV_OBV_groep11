@@ -12,6 +12,7 @@ import Api from "../api";
 configure({ enforceActions: `observed` });
 class ShowStore {
   _shows = [];
+  _filter = null;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -51,6 +52,7 @@ class ShowStore {
     const show = new Show(this.rootStore);
     show.setValues(values);
     runInAction(() => this._shows.push(show));
+    console.log(this.categories);
   };
 
   // updateDrink = drink => {
@@ -66,6 +68,21 @@ class ShowStore {
 
   resolveShow = showId => this._shows.find(show => show.id === showId);
 
+  get categories() {
+    const categories = [];
+    this._shows.forEach(show => {
+      if (!categories.includes(show.category)) {
+        categories.push(show.category);
+      }
+    });
+
+    return categories;
+  }
+
+  setFilter = filter => {
+    this._filter = filter;
+  };
+
   get shows() {
     // console.log(this._shows);
     return this._filter
@@ -76,6 +93,9 @@ class ShowStore {
 
 decorate(ShowStore, {
   _shows: observable,
+  _filter: observable,
+  categories: computed,
+  setFilter: action,
   shows: computed
 });
 

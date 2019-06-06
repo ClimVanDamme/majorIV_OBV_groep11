@@ -4,17 +4,23 @@ import React from "react";
 import TabBar from "../components/TabBar";
 import ShowList from "../components/ShowList";
 import ProfileButton from "../components/ProfileButton";
+import Filter from "../components/Filter";
+import { inject, observer } from "mobx-react";
 
-const Shows = () => {
+const Shows = ({ showStore }) => {
   return (
     <>
       <section>
         <ProfileButton />
         <ShowList />
+        <Filter
+          categories={showStore.categories}
+          setFilter={showStore.setFilter}
+        />
       </section>
       <TabBar />
     </>
   );
 };
 
-export default Shows;
+export default inject(`showStore`)(observer(Shows));
