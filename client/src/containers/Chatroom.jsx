@@ -8,6 +8,10 @@ import Conversation from "../components/Conversation";
 const Chatroom = ({ chatStore, id }) => {
   const chat = chatStore.getById(id);
 
+  if (!chat) {
+    return <p>Loading</p>;
+  }
+
   return (
     <>
       <section>

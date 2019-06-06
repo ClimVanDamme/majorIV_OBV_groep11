@@ -7,6 +7,9 @@ import { inject, PropTypes, observer } from "mobx-react";
 
 const Detail = ({ showStore, chatStore, id, characterStore }) => {
   const show = showStore.findById(id);
+  if (!show) {
+    return <p>Loading</p>;
+  }
   const getRandomCharacter = characterStore.getRandomCharacter;
   const randomCharacter = characterStore.randomCharacter;
   console.log(`dit is de id in Detail container`, id);
