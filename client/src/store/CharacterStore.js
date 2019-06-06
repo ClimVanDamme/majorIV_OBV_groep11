@@ -1,10 +1,11 @@
-import { decorate, observable, configure, runInAction } from "mobx";
+import { decorate, observable, configure, runInAction, action } from "mobx";
 import Character from "../models/Character";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 class CharacterStore {
   characters = [];
+  randomCharacter = ``;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -50,6 +51,13 @@ class CharacterStore {
     // );
   };
 
+  getRandomCharacter = characters => {
+    console.log(characters, `characters van bepaalde show`);
+    const character = characters[Math.floor(Math.random() * characters.length)];
+    console.log(character, `random character`);
+    this.randomCharacter = character;
+  };
+
   _addCharacter = values => {
     // console.log(values);
     const character = new Character();
@@ -62,7 +70,9 @@ class CharacterStore {
 }
 
 decorate(CharacterStore, {
-  characters: observable
+  characters: observable,
+  randomCharacter: observable,
+  getRandomCharacter: action
 });
 
 export default CharacterStore;
