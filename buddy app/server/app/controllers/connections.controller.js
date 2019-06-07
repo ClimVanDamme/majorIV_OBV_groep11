@@ -31,7 +31,7 @@ exports.create = (req, res) => {
 
 exports.findAll = async (req, res) => {
   try {
-    const connections = await Connection.find();
+    const connections = await Connection.find({ user_id: req.authUserId });
     res.send(connections);
   } catch (err) {
     res.status(500).send({ err: err.connection || "Error" });
@@ -41,7 +41,8 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
   try {
     const connection = await Connection.findOne({
-      _id: req.params.connectionId
+      _id: req.params.connectionId,
+      userId: req.authUserId
     });
     if (connection) {
       res.send(connection);
@@ -77,7 +78,8 @@ exports.update = async (req, res) => {
   try {
     const connection = await connection.findOneAndUpdate(
       {
-        _id: req.params.connectionId
+        _id: req.params.connectionId,
+        userId: req.authUserId
       },
       {
         user_id: req.body.user_id,
@@ -105,7 +107,8 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   try {
     const connection = await Connection.findOneAndRemove({
-      _id: req.params.connectionId
+      _id: req.params.connectionId,
+      userId: req.authUserId
     });
     if (!connection) {
       return res.status(404).send("No connection found");

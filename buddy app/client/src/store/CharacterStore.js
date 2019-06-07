@@ -5,7 +5,6 @@ import Api from "../api";
 configure({ enforceActions: `observed` });
 class CharacterStore {
   characters = [];
-  randomCharacter = ``;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -68,11 +67,13 @@ class CharacterStore {
 
   resolveCharacters = showId =>
     this.characters.filter(character => character.showId === showId);
+
+  resolveCharacter = characterId =>
+    this.characters.find(char => char.id === characterId);
 }
 
 decorate(CharacterStore, {
   characters: observable,
-  randomCharacter: observable,
   getRandomCharacter: action
 });
 

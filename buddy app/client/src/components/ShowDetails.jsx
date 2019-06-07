@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import CharacterQuote from "./CharacterQuote";
 import { withRouter } from "react-router-dom";
 

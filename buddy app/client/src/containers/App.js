@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import styles from "./App.module.css";
 import { inject } from "mobx-react";

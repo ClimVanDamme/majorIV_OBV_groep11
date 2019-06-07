@@ -2,6 +2,7 @@ import ShowStore from "./ShowStore";
 import CharacterStore from "./CharacterStore";
 import ChatStore from "./ChatStore";
 import MessageStore from "./MessageStore";
+import ConnectionStore from "./ConnectionStore";
 import UiStore from "./UiStore";
 
 class Store {
@@ -11,6 +12,7 @@ class Store {
     this.characterStore = new CharacterStore(this);
     this.chatStore = new ChatStore(this);
     this.messageStore = new MessageStore(this);
+    this.connectionStore = new ConnectionStore(this);
   }
 }
 
