@@ -10,6 +10,7 @@ import Register from "./Register";
 import Detail from "./Detail";
 import Chatroom from "./Chatroom";
 import Profile from "./Profile";
+import CharacterDetail from "./CharacterDetail";
 
 const App = ({ uiStore }) => {
   return (
@@ -30,6 +31,10 @@ const App = ({ uiStore }) => {
         <Route
           path={ROUTES.showdetail}
           render={({ match }) => <Detail id={match.params.id} />}
+        />
+        <Route
+          path={ROUTES.characterdetail}
+          render={({ match }) => <CharacterDetail id={match.params.id} />}
         />
         <Route path={ROUTES.profile} component={Profile} />
         <Route path={ROUTES.login} component={Login} />

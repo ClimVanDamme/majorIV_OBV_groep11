@@ -55,7 +55,8 @@ class CharacterStore {
     console.log(characters, `characters van bepaalde show`);
     const character = characters[Math.floor(Math.random() * characters.length)];
     console.log(character, `random character`);
-    this.randomCharacter = character;
+    // this.randomCharacter = character;
+    return character;
   };
 
   _addCharacter = values => {

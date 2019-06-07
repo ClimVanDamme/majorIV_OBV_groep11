@@ -4,6 +4,7 @@ export const ROUTES = {
   chatroom: `/chats/:id`,
   shows: `/shows`,
   showdetail: `/shows/:id`,
+  characterdetail: `/characters/:id`,
   profile: `/profile`,
   login: `/signin`,
   register: `/signup`
