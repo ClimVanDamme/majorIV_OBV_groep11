@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
 const ChatListItem = ({ chat }) => {
+  console.log(chat);
+
   return (
     <div>
-      <Link to={`/chats/${chat.id}`}>{chat.show.title}</Link>
+      <a href={`https://discord.gg/uzxh6fm`}>{chat.show.title}</a>
     </div>
   );
 };
