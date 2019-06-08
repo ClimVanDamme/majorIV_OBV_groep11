@@ -7,9 +7,9 @@ exports.create = (req, res) => {
   if (!req.body.character_id) {
     return res.status(500).send({ err: "character_id can not be empty" });
   }
-  if (!req.body.chat_id) {
-    return res.status(500).send({ err: "chat_id can not be empty" });
-  }
+  // if (!req.body.chat_id) {
+  //   return res.status(500).send({ err: "chat_id can not be empty" });
+  // }
   if (!req.body.show_id) {
     return res.status(500).send({ err: "show_id can not be empty" });
   }
@@ -17,7 +17,7 @@ exports.create = (req, res) => {
   const connection = new Connection({
     user_id: req.body.user_id,
     character_id: req.body.character_id,
-    chat_id: req.body.chat_id,
+    // chat_id: req.body.chat_id,
     show_id: req.body.show_id
   });
 
@@ -68,9 +68,9 @@ exports.update = async (req, res) => {
   if (!req.body.character_id) {
     return res.status(400).send("character_id can not be empty");
   }
-  if (!req.body.chat_id) {
-    return res.status(400).send("chat_id can not be empty");
-  }
+  // if (!req.body.chat_id) {
+  //   return res.status(400).send("chat_id can not be empty");
+  // }
   if (!req.body.show_id) {
     return res.status(400).send("show_id can not be empty");
   }
@@ -84,7 +84,7 @@ exports.update = async (req, res) => {
       {
         user_id: req.body.user_id,
         character_id: req.body.character_id,
-        chat_id: req.body.chat_id,
+        // chat_id: req.body.chat_id,
         show_id: req.body.show_id
       },
       {

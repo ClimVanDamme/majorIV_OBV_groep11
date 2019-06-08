@@ -3,7 +3,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const ChatListItem = ({ chat }) => {
-  console.log(chat);
+  console.log(chat, `chat in ChatListItem`);
 
   return (
     <div>

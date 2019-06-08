@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 // import { Link } from "react-router-dom";
 import CharacterQuote from "./CharacterQuote";
 import { withRouter } from "react-router-dom";
+import { values } from "mobx";
 
 // import { observer } from "mobx-react";
 
@@ -10,13 +11,27 @@ const ShowDetails = ({
   show,
   getRandomCharacter,
   randomCharacter,
+  addConnection,
+  userId,
   history
 }) => {
   console.log(show, `show in ShowDetails component`);
   const [ownCharacter, setOwnCharacter] = useState({});
+  // const values = {};
+  // values.user_id = userId;
+  // values.show_id = show.id;
+
   useEffect(() => {
     const character = ownCharacter;
+
     if (character.id) {
+      values.character_id = character.id;
+      // addConnection(values);
+      addConnection({
+        user_id: userId,
+        show_id: show.id,
+        character_id: character.id
+      });
       history.push(`/characters/${character.id}`);
     }
   }, [ownCharacter]);

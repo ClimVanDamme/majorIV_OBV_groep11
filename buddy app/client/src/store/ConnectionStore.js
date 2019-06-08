@@ -57,8 +57,18 @@ class ConnectionStore {
     // );
   };
 
+  addConnection = values => {
+    const newConnection = new Connection(this.rootStore);
+    console.log(newConnection, `connection voor het om zeep is`);
+    newConnection.setValues(values);
+    console.log(newConnection, `values aan newConnection gegeven`);
+    this.connections.push(newConnection);
+    this.api
+      .create(newConnection)
+      .then(connectionValues => newConnection.setValues(connectionValues));
+  };
+
   _addConnection = values => {
-    console.log(values);
     const connection = new Connection(this.rootStore);
     connection.setValues(values);
     runInAction(() => this.connections.push(connection));
