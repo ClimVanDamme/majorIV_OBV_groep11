@@ -3,8 +3,6 @@ import React from "react";
 import { PropTypes } from "prop-types";
 
 const ChatListItem = ({ chat }) => {
-  console.log(chat, `chat in ChatListItem`);
-
   return (
     <div>
       <a href={`https://discord.gg/uzxh6fm`}>{chat.show.title}</a>

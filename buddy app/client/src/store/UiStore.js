@@ -18,8 +18,6 @@ class UiStore {
       .login(username, password)
       .then(() => {
         this.setUser(getUserFromCookie());
-        console.log(this.authUser);
-
         Promise.resolve();
       })
       .catch(() => {

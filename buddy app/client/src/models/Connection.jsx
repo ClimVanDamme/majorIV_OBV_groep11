@@ -14,13 +14,6 @@ class Connection {
   setShowId = value => (this.showId = value);
 
   setValues = values => {
-    // console.log(values, `values in setValues`);
-
-    // console.log(values._id, `_id in setValues`);
-    // // console.log(values.user_id, `user_id in setValues`);
-    // console.log(values.character_id, `character_id in setValues`);
-    // console.log(values.show_id, `show_id in setValues`);
-
     this.setId(values._id);
     // this.setUserId(values.user_id);
     this.setCharacterId(values.character_id);

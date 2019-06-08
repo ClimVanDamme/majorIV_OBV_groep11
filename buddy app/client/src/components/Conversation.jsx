@@ -4,8 +4,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Conversation = ({ messages }) => {
-  console.log(messages);
-
   return (
     <ul>
       {messages.map(message => (

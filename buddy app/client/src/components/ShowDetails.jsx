@@ -8,11 +8,7 @@ import { values } from "mobx";
 // import { observer } from "mobx-react";
 
 const ShowDetails = ({ show, getRandomCharacter, addConnection, history }) => {
-  console.log(show, `show in ShowDetails component`);
   const [ownCharacter, setOwnCharacter] = useState({});
-  // const values = {};
-  // values.user_id = userId;
-  // values.show_id = show.id;
 
   useEffect(() => {
     const character = ownCharacter;

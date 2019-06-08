@@ -25,9 +25,7 @@ const ChatList = ({ chatStore }) => {
     <>
       <section>
         <ProfileButton />
-        {console.log(chats, `de chats`)}
         {chats.map(chat => (
-          //console.log(`chat in ChatList`, chat)
           <ChatListItem key={chat.showId} chat={chat} />
         ))}
       </section>

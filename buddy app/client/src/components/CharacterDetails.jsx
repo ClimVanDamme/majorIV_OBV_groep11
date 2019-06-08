@@ -4,8 +4,6 @@ import { PropTypes } from "prop-types";
 // import { observer } from "mobx-react";
 
 const CharacterDetails = ({ character }) => {
-  console.log(character, `character in CharacterDetails component`);
-
   return (
     <div>
       <h1>{character.name}</h1>

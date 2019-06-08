@@ -26,45 +26,19 @@ class ShowStore {
     this.api.getAll().then(d => d.forEach(this._addShow));
   };
 
-  // addDrink = data => {
-  //   const newDrink = new Drink();
-  //   newDrink.updateFromServer(data);
-  //   this.drinks.push(newDrink);
-  //   this.api
-  //     .create(newDrink)
-  //     .then(drinkValues => newDrink.updateFromServer(drinkValues));
-  // };
-
   findById = id => {
-    console.log(id, `id in findById`);
-    console.log(this._shows);
-    console.log(`findById`);
     const show = this._shows.find(show => show.id === id);
     if (!show) {
-      console.log(`no show`);
       this.api.getById(id).then(this._addShow);
     }
     return show;
   };
 
   _addShow = values => {
-    console.log(values, `values in _addShow`);
     const show = new Show(this.rootStore);
     show.setValues(values);
     runInAction(() => this._shows.push(show));
-    console.log(this.categories);
   };
-
-  // updateDrink = drink => {
-  //   this.api
-  //     .update(drink)
-  //     .then(drinkValues => drink.updateFromServer(drinkValues));
-  // };
-
-  // deleteDrink = drink => {
-  //   this.drinks.remove(drink);
-  //   this.api.delete(drink);
-  // };
 
   resolveShow = showId => this._shows.find(show => show.id === showId);
 
@@ -84,7 +58,6 @@ class ShowStore {
   };
 
   get shows() {
-    // console.log(this._shows);
     return this._filter
       ? this._shows.filter(check => check.category === this._filter)
       : this._shows;

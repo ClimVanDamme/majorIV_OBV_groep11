@@ -34,38 +34,9 @@ class ConnectionStore {
     this.api.getAll().then(d => d.forEach(this._addConnection));
   };
 
-  getById = id => {
-    //wanneer dit loopt, genereert de app heel veel voorstellingen
-    //moeten wel eerst pullen van de server zodat we rechtstreeks een link met id in de zoekbalk kunnen plakken
-    // this.getAll();
-
-    return this.connections.find(check => check.id === id);
-  };
-
-  _getAll = async () => {
-    // const jsonData = await this.api.getAll();
-    //wanneer deze code loopt, genereert de app heel veel voorstellingen
-    // runInAction(
-    //   () =>
-    //     (this.shows = this.shows.concat(
-    //       jsonData.map(values => {
-    //         const show = new Show();
-    //         show.setValues(values);
-    //         return show;
-    //       })
-    //     ))
-    // );
-  };
-
   addConnection = values => {
-    // console.log(`values`);
-
-    // console.log(values);
-
     const newConnection = new Connection(this.rootStore);
-    // console.log(newConnection, `connection voor het om zeep is`);
     newConnection.setValues(values);
-    console.log(newConnection, `values aan newConnection gegeven`);
     this.connections.push(newConnection);
     this.api
       .create(newConnection)
@@ -76,6 +47,10 @@ class ConnectionStore {
     const connection = new Connection(this.rootStore);
     connection.setValues(values);
     runInAction(() => this.connections.push(connection));
+  };
+
+  getById = id => {
+    return this.connections.find(check => check.id === id);
   };
 }
 

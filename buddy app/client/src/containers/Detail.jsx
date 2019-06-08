@@ -20,10 +20,6 @@ const Detail = ({
   const getRandomCharacter = characterStore.getRandomCharacter;
   const addConnection = connectionStore.addConnection;
 
-  // console.log(`dit is de id in Detail container`, id);
-  // console.log(`dit is de show in Detail container`, show);
-  //console.log(`dit is het userId in Detail container`, userId);
-
   return (
     <>
       <section>

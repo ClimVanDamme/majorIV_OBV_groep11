@@ -5,8 +5,6 @@ import TabBar from "../components/TabBar";
 import { inject, observer } from "mobx-react";
 
 const Profile = ({ uiStore, connectionStore }) => {
-  console.log(uiStore.authUser);
-
   return (
     <>
       {uiStore.authUser ? (
