@@ -1,7 +1,7 @@
 const prompt = require(`../commands/prompt`);
 const react = require(`../commands/react`);
 
-const welcome = require(`../commands/welcome`);
+const welcome_message = require(`../commands/welcome_message`);
 
 module.exports = (client, message) => {
   if (message.content === "!prompt") {
@@ -10,6 +10,6 @@ module.exports = (client, message) => {
   }
   if (message.content === "!welcome") {
     // react(message, "😄");
-    welcome(message);
+    welcome_message(message);
   }
 };
