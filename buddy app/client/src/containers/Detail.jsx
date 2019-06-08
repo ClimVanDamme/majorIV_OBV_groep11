@@ -18,9 +18,7 @@ const Detail = ({
     return <p>Loading</p>;
   }
   const getRandomCharacter = characterStore.getRandomCharacter;
-  const randomCharacter = characterStore.randomCharacter;
   const addConnection = connectionStore.addConnection;
-  const userId = uiStore.authUser._id;
 
   // console.log(`dit is de id in Detail container`, id);
   // console.log(`dit is de show in Detail container`, show);
@@ -32,9 +30,7 @@ const Detail = ({
         <ShowDetails
           show={show}
           getRandomCharacter={getRandomCharacter}
-          randomCharacter={randomCharacter}
           addConnection={addConnection}
-          userId={userId}
         />
       </section>
       <TabBar />

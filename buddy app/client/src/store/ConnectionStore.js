@@ -58,8 +58,12 @@ class ConnectionStore {
   };
 
   addConnection = values => {
+    // console.log(`values`);
+
+    // console.log(values);
+
     const newConnection = new Connection(this.rootStore);
-    console.log(newConnection, `connection voor het om zeep is`);
+    // console.log(newConnection, `connection voor het om zeep is`);
     newConnection.setValues(values);
     console.log(newConnection, `values aan newConnection gegeven`);
     this.connections.push(newConnection);

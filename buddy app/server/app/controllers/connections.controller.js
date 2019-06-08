@@ -1,24 +1,24 @@
 const Connection = require("../models/connection.model.js");
 
 exports.create = (req, res) => {
-  if (!req.body.user_id) {
-    return res.status(500).send({ err: "user_id can not be empty" });
-  }
-  if (!req.body.character_id) {
-    return res.status(500).send({ err: "character_id can not be empty" });
+  // if (!req.body.user_id) {
+  //   return res.status(500).send({ err: "user_id can not be empty" });
+  // }
+  if (!req.body.characterId) {
+    return res.status(500).send({ err: "characterId can not be empty" });
   }
   // if (!req.body.chat_id) {
   //   return res.status(500).send({ err: "chat_id can not be empty" });
   // }
-  if (!req.body.show_id) {
-    return res.status(500).send({ err: "show_id can not be empty" });
+  if (!req.body.showId) {
+    return res.status(500).send({ err: "showId can not be empty" });
   }
 
   const connection = new Connection({
-    user_id: req.body.user_id,
-    character_id: req.body.character_id,
+    user_id: req.authUserId,
+    character_id: req.body.characterId,
     // chat_id: req.body.chat_id,
-    show_id: req.body.show_id
+    show_id: req.body.showId
   });
 
   connection
@@ -42,7 +42,7 @@ exports.findOne = async (req, res) => {
   try {
     const connection = await Connection.findOne({
       _id: req.params.connectionId,
-      userId: req.authUserId
+      user_id: req.authUserId
     });
     if (connection) {
       res.send(connection);
@@ -62,9 +62,9 @@ exports.update = async (req, res) => {
   //     return res.status(400).send("title mag niet leeg zijn");
   //   }
 
-  if (!req.body.user_id) {
-    return res.status(400).send("user_id can not be empty");
-  }
+  // if (!req.body.user_id) {
+  //   return res.status(400).send("user_id can not be empty");
+  // }
   if (!req.body.character_id) {
     return res.status(400).send("character_id can not be empty");
   }
@@ -79,10 +79,10 @@ exports.update = async (req, res) => {
     const connection = await connection.findOneAndUpdate(
       {
         _id: req.params.connectionId,
-        userId: req.authUserId
+        user_id: req.authUserId
       },
       {
-        user_id: req.body.user_id,
+        user_id: req.authUserId,
         character_id: req.body.character_id,
         // chat_id: req.body.chat_id,
         show_id: req.body.show_id
@@ -108,7 +108,7 @@ exports.delete = async (req, res) => {
   try {
     const connection = await Connection.findOneAndRemove({
       _id: req.params.connectionId,
-      userId: req.authUserId
+      user_id: req.authUserId
     });
     if (!connection) {
       return res.status(404).send("No connection found");

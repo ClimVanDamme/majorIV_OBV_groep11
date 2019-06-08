@@ -8,19 +8,21 @@ class Connection {
   }
 
   setId = value => (this.id = value);
-  setUserId = value => (this.userId = value);
+  // setUserId = value => (this.userId = value);
   setCharacterId = value => (this.characterId = value);
   // setChatId = value => (this.chatId = value);
   setShowId = value => (this.showId = value);
 
   setValues = values => {
-    console.log(values._id, `_id in setValues`);
-    console.log(values.user_id, `user_id in setValues`);
-    console.log(values.character_id, `character_id in setValues`);
-    console.log(values.show_id, `show_id in setValues`);
+    // console.log(values, `values in setValues`);
+
+    // console.log(values._id, `_id in setValues`);
+    // // console.log(values.user_id, `user_id in setValues`);
+    // console.log(values.character_id, `character_id in setValues`);
+    // console.log(values.show_id, `show_id in setValues`);
 
     this.setId(values._id);
-    this.setUserId(values.user_id);
+    // this.setUserId(values.user_id);
     this.setCharacterId(values.character_id);
     // this.setChatId(values.chat_id);
     this.setShowId(values.show_id);
@@ -32,23 +34,22 @@ class Connection {
 
   get values() {
     return {
-      userId: this.userId,
+      // userId: this.userId,
       characterId: this.characterId,
       // chatId: this.chatId,
-      showId: this.showId,
-      character: computed
+      showId: this.showId
     };
   }
 }
 
 decorate(Connection, {
   id: observable,
-  userId: observable,
+  // userId: observable,
   characterId: observable,
   // chatId: observable,
   showId: observable,
   setId: action,
-  setUserId: action,
+  // setUserId: action,
   setCharacterId: action,
   // setChatId: action,
   setShowId: action,

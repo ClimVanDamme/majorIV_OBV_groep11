@@ -7,14 +7,7 @@ import { values } from "mobx";
 
 // import { observer } from "mobx-react";
 
-const ShowDetails = ({
-  show,
-  getRandomCharacter,
-  randomCharacter,
-  addConnection,
-  userId,
-  history
-}) => {
+const ShowDetails = ({ show, getRandomCharacter, addConnection, history }) => {
   console.log(show, `show in ShowDetails component`);
   const [ownCharacter, setOwnCharacter] = useState({});
   // const values = {};
@@ -28,7 +21,6 @@ const ShowDetails = ({
       values.character_id = character.id;
       // addConnection(values);
       addConnection({
-        user_id: userId,
         show_id: show.id,
         character_id: character.id
       });
