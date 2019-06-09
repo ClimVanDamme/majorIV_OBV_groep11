@@ -5,11 +5,30 @@ module.exports = member => {
   let embed = new Discord.RichEmbed()
     .setTitle(`Welkom!`)
     .setDescription(
-      `Welkom op het podium van Macbeth. Hier speel jij je personage. Hoe zou jij reageren als je in de schoenen van je personage zou staan? Beantwoord de stellingen en leer het verhaal van de andere personages kennen. Veel conversatie-genot!`
+      `Dag <@${
+        member.id
+      }>, Welkom op het podium van Macbeth. Hier speel jij je personage. Hoe zou jij reageren als je in de schoenen van je personage zou staan? Beantwoord de stellingen en leer het verhaal van de andere personages kennen. Veel conversatie-genot!`
     )
+    .addField(`👍`, `klik op de duim om dit bericht te verwijderen.`)
     .setColor(`#ff9a40`);
   // send
-  member.guild.channels.find("name", `general`).send({ embed: embed });
+  if (member.guild.channels.find(c => c.name === `podium`)) {
+    member.guild.channels
+      .find(channel => channel.name === `podium`)
+      .send({ embed: embed })
+      .then(async sentEmbed => {
+        await sentEmbed.react("👍");
+      });
+  } else if (member.guild.channels.find(c => c.name === `general`)) {
+    member.guild.channels
+      .find(channel => channel.name === `general`)
+      .send({ embed: embed })
+      .then(async sentEmbed => {
+        await sentEmbed.react("👍");
+      });
+  } else {
+    console.log(`No suitable channel found`);
+  }
 
   // characters
   let charEmbed = new Discord.RichEmbed()
@@ -28,12 +47,25 @@ module.exports = member => {
       `"Ik ben een vaderfiguur, maar wel wat naïef."`
     );
   // send
-  member.guild.channels
-    .find("name", `general`)
-    .send({ embed: charEmbed })
-    .then(async sentEmbed => {
-      await sentEmbed.react("💀");
-      await sentEmbed.react("👸");
-      await sentEmbed.react("👑");
-    });
+  if (member.guild.channels.find(c => c.name === `podium`)) {
+    member.guild.channels
+      .find(channel => channel.name === `podium`)
+      .send({ embed: charEmbed })
+      .then(async sentEmbed => {
+        await sentEmbed.react("💀");
+        await sentEmbed.react("👸");
+        await sentEmbed.react("👑");
+      });
+  } else if (member.guild.channels.find(c => c.name === `general`)) {
+    member.guild.channels
+      .find(channel => channel.name === `podium`)
+      .send({ embed: charEmbed })
+      .then(async sentEmbed => {
+        await sentEmbed.react("💀");
+        await sentEmbed.react("👸");
+        await sentEmbed.react("👑");
+      });
+  } else {
+    console.log(`No suitable channel found`);
+  }
 };
