@@ -2,6 +2,7 @@ import React from "react";
 // import stylesLayout from "../styles/layout.module.css";
 // import stylesTypo from "../styles/typo.module.css";
 import TabBar from "../components/TabBar";
+import CharacterList from "../components/CharacterList";
 import { inject, observer } from "mobx-react";
 
 const Profile = ({ uiStore, connectionStore }) => {
@@ -16,9 +17,7 @@ const Profile = ({ uiStore, connectionStore }) => {
           <p>{uiStore.authUser.gender}</p>
           <p>{uiStore.authUser.birthday}</p>
           <button onClick={uiStore.logout}>uitloggen</button>
-          {connectionStore.connections.map(conn => (
-            <p key={conn.id}>{conn.character.name}</p>
-          ))}
+          <CharacterList />
         </section>
       ) : (
         <p>Je bent niet ingelogd</p>
