@@ -10,7 +10,7 @@ module.exports = message => {
       }. Welkom op het podium van Macbeth. Hier speel jij je personage. Hoe zou jij reageren als je in de schoenen van je personage zou staan? Beantwoord de stellingen en leer het verhaal van de andere personages kennen. Veel conversatie-genot!`
     )
     .addField(`👍 Top!`, `klik op de duim om dit bericht te verwijderen.`)
-    .setColor(`#ff9a40`);
+    .setColor(`#594157`);
   // send
   message.channel.send({ embed: embed }).then(async sentEmbed => {
     await sentEmbed.react("👍");

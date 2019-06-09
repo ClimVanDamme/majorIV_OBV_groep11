@@ -10,7 +10,7 @@ module.exports = member => {
       }>, Welkom op het podium van Macbeth. Hier speel jij je personage. Hoe zou jij reageren als je in de schoenen van je personage zou staan? Beantwoord de stellingen en leer het verhaal van de andere personages kennen. Veel conversatie-genot!`
     )
     .addField(`👍`, `klik op de duim om dit bericht te verwijderen.`)
-    .setColor(`#ff9a40`);
+    .setColor(`#594157`);
   // send
   if (member.guild.channels.find(c => c.name === `podium`)) {
     member.guild.channels
@@ -45,7 +45,8 @@ module.exports = member => {
     .addField(
       `👑 Koning Duncan`,
       `"Ik ben een vaderfiguur, maar wel wat naïef."`
-    );
+    )
+    .setColor(`#C4DDE9`);
   // send
   if (member.guild.channels.find(c => c.name === `podium`)) {
     member.guild.channels

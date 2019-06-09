@@ -1,6 +1,6 @@
 const Discord = module.require(`discord.js`);
 const nicknameChanged = require(`../commands/nicknameChanged`);
-const conversatieStarter = require(`../commands/conversationStarter`);
+const conversationStarter = require(`../commands/conversationStarter`);
 
 module.exports = async (client, reaction, user) => {
   const str = reaction.message.embeds[0].description;
@@ -40,7 +40,10 @@ module.exports = async (client, reaction, user) => {
       // async
       await reaction.message.delete();
       await nicknameChanged(reaction, user);
-      await conversatieStarter(reaction.message.channel);
+      await reaction.message.channel.send(
+        `Hier is alvast iets om over na te denken.`
+      );
+      await conversationStarter(client, reaction.message.channel);
     } else {
       reaction.message.delete();
       reaction.message.channel.send(adminEmbed);
