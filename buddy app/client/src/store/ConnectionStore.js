@@ -56,6 +56,10 @@ class ConnectionStore {
   getByShowId = showId => {
     return this.connections.find(check => check.showId === showId);
   };
+
+  getByCharId = charId => {
+    return this.connections.find(check => check.characterId === charId);
+  };
 }
 
 decorate(ConnectionStore, {

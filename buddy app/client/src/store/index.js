@@ -4,6 +4,7 @@ import ChatStore from "./ChatStore";
 import MessageStore from "./MessageStore";
 import ConnectionStore from "./ConnectionStore";
 import UiStore from "./UiStore";
+import StoryStore from "./StoryStore";
 
 class Store {
   constructor() {
@@ -13,6 +14,7 @@ class Store {
     this.chatStore = new ChatStore(this);
     this.messageStore = new MessageStore(this);
     this.connectionStore = new ConnectionStore(this);
+    this.storyStore = new StoryStore(this);
   }
 }
 
