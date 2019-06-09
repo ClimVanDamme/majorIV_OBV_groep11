@@ -12,6 +12,7 @@ class Connection {
   setCharacterId = value => (this.characterId = value);
   // setChatId = value => (this.chatId = value);
   setShowId = value => (this.showId = value);
+  setCharactersSet = value => (this.characterSet = value);
 
   setValues = values => {
     this.setId(values._id);
@@ -19,6 +20,7 @@ class Connection {
     this.setCharacterId(values.character_id);
     // this.setChatId(values.chat_id);
     this.setShowId(values.show_id);
+    this.setCharactersSet(values.characterSet);
   };
 
   get character() {
@@ -30,7 +32,8 @@ class Connection {
       // userId: this.userId,
       characterId: this.characterId,
       // chatId: this.chatId,
-      showId: this.showId
+      showId: this.showId,
+      characterSet: this.characterSet
     };
   }
 }
@@ -41,6 +44,7 @@ decorate(Connection, {
   characterId: observable,
   // chatId: observable,
   showId: observable,
+  characterSet: observable,
   setId: action,
   // setUserId: action,
   setCharacterId: action,

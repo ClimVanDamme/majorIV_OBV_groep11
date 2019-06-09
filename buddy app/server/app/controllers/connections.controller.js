@@ -14,11 +14,16 @@ exports.create = (req, res) => {
     return res.status(500).send({ err: "showId can not be empty" });
   }
 
+  if (!req.body.characterSet) {
+    return res.status(500).send({ err: "characterSet can not be empty" });
+  }
+
   const connection = new Connection({
     user_id: req.authUserId,
     character_id: req.body.characterId,
     // chat_id: req.body.chat_id,
-    show_id: req.body.showId
+    show_id: req.body.showId,
+    characterSet: req.body.characterSet
   });
 
   connection
@@ -75,6 +80,10 @@ exports.update = async (req, res) => {
     return res.status(400).send("show_id can not be empty");
   }
 
+  if (!req.body.characterSet) {
+    return res.status(400).send("characterSet can not be empty");
+  }
+
   try {
     const connection = await connection.findOneAndUpdate(
       {
@@ -85,7 +94,8 @@ exports.update = async (req, res) => {
         user_id: req.authUserId,
         character_id: req.body.character_id,
         // chat_id: req.body.chat_id,
-        show_id: req.body.show_id
+        show_id: req.body.show_id,
+        characterSet: req.body.characterSet
       },
       {
         new: true

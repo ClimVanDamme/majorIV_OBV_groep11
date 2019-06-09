@@ -6,7 +6,8 @@ const ConnectionSchema = mongoose.Schema(
     user_id: ObjectId,
     character_id: ObjectId,
     // chat_id: ObjectId,
-    show_id: ObjectId
+    show_id: ObjectId,
+    characterSet: Boolean
   },
   {
     timestamps: true

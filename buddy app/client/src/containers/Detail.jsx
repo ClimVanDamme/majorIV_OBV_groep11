@@ -19,6 +19,7 @@ const Detail = ({
   }
   const getRandomCharacter = characterStore.getRandomCharacter;
   const addConnection = connectionStore.addConnection;
+  const getConnection = connectionStore.getByShowId;
 
   return (
     <>
@@ -27,6 +28,7 @@ const Detail = ({
           show={show}
           getRandomCharacter={getRandomCharacter}
           addConnection={addConnection}
+          getConnection={getConnection}
         />
       </section>
       <TabBar />

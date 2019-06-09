@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
-// import { Link } from "react-router-dom";
 import CharacterQuote from "./CharacterQuote";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { values } from "mobx";
+import { ROUTES } from "../constants";
 
 // import { observer } from "mobx-react";
 
-const ShowDetails = ({ show, getRandomCharacter, addConnection, history }) => {
+const ShowDetails = ({
+  show,
+  getRandomCharacter,
+  addConnection,
+  getConnection,
+  history
+}) => {
   const [ownCharacter, setOwnCharacter] = useState({});
+  const connection = getConnection(show.id);
 
   useEffect(() => {
     const character = ownCharacter;
@@ -18,7 +26,8 @@ const ShowDetails = ({ show, getRandomCharacter, addConnection, history }) => {
       // addConnection(values);
       addConnection({
         show_id: show.id,
-        character_id: character.id
+        character_id: character.id,
+        characterSet: true
       });
       history.push(`/characters/${character.id}`);
     }
@@ -30,21 +39,36 @@ const ShowDetails = ({ show, getRandomCharacter, addConnection, history }) => {
   //   }
   // };
 
-  return (
-    <div>
-      <p>{show.title}</p>
-      <p>{show.description}</p>
-      <button
-        onClick={() => setOwnCharacter(getRandomCharacter(show.characters))}
-      >
-        Geef mij een personage
-      </button>
-      {show.characters.map(character => (
-        <CharacterQuote key={character.name} character={character} />
-      ))}
-      <p>{ownCharacter.name}</p>
-    </div>
-  );
+  if (connection && connection.characterSet === true) {
+    return (
+      <div>
+        <p>{show.title}</p>
+        <p>{show.description}</p>
+        <Link to={ROUTES.chat}>Chatten als mijn personage</Link>
+        {show.characters.map(character => (
+          <CharacterQuote key={character.name} character={character} />
+        ))}
+        <p>{connection.character.name}</p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <p>{show.title}</p>
+        <p>{show.description}</p>
+        <button
+          onClick={() => {
+            setOwnCharacter(getRandomCharacter(show.characters));
+          }}
+        >
+          Geef mij een personage
+        </button>
+        {show.characters.map(character => (
+          <CharacterQuote key={character.name} character={character} />
+        ))}
+      </div>
+    );
+  }
 };
 
 ShowDetails.propTypes = {
