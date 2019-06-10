@@ -1,29 +1,22 @@
 :global(:root){
-  --primary-color: #FFCA88;
-  --dark-color: #444444;
-  --light-color: #fff5ea;
-  --ultralight-color: #fff;
-  --gray-color: #b2b2b2;
-  --gray-light-color: #e3e3e3;
-  --success-color:  #93fac5;
+  --dark-purple-color: #594157;
+  --dark-gray-color: #404040;
+  --light-pink-color: #F5E6E8;
+  --pink-color: #E6C1C5;
 }
 
-.color-primary {
-  color: var(--primary-color);
+.color-dark-purple {
+  color: var(--dark-purple-color);
 }
 
-.color-dark {
-  color: var(--dark-color);
+.color-dark-gray {
+  color: var(--dark-gray-color);
 }
 
-.color-light {
-  color: var(--light-color);
+.color-light-pink {
+  color: var(--light-pink-color);
 }
 
-.color-gray {
-  color: var(--light-gray);
-}
-
-.color-success {
-  color: var(--light-gray);
+.color-pink {
+  color: var(--pink-color);
 }

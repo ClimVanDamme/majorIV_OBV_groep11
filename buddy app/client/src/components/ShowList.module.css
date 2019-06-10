@@ -1,0 +1,35 @@
+
+.listItem {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    grid-template-rows: 6.6rem 3.5rem 1.5rem;
+    height: 11.6rem;
+
+    margin-bottom: 2rem;
+  
+    /* @media (--m) {
+      grid-template-columns: 4fr 2fr 1rem;
+      grid-template-rows: 4fr 3rem 1rem;
+    }
+  
+    @media (--xl) {
+      grid-template-columns: 4fr 1.5fr 2rem;
+      grid-template-rows: 4fr 5rem .5rem;
+    } */
+  }
+
+.showTitle {
+    color: white;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    grid-row: 2;
+    grid-column: 2;
+    align-self: flex-end;
+    color: white;
+    z-index: 1;
+}
+
+.showImg {
+    grid-row: 1;
+    grid-column: 1;
+}
