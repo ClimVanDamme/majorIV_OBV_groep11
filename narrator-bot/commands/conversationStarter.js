@@ -2,22 +2,64 @@ const Discord = module.require(`discord.js`);
 const random = require(`../functions`);
 
 module.exports = (client, channel) => {
-  // starters = [
-  //   `Drie heksen voorspellen de toekomst van MacBeth, hoe rooskleurig ziet zijn toekomst eruit?`,
-  //   `Ook Banquo krijgt een voorspelling te horen, op welke manier speelt de achterdochtigheid van Macbeth een rol in zijn toekomst?`,
-  //   `Koning Duncan overnacht in het kasteel van Macbeth en zijn vrouw. Wie zorgt ervoor dat de koning de eeuwige slaap vindt?`,
-  //   `Er is een bebloede dolk gevonden bij de dronken, slapende wachters. Hoe is die daar geraakt?`,
-  //   `Hoe komt het dat de wachters hun zijde van het verhaal niet kunnen vertellen?`,
-  //   `Welk duister geheim verklapt de slaapwandelende Lady Macbeth aan haar dienstmeisje?`,
-  //   `Wie zou de familie van edelman Macduff om het leven gebracht hebben na zijn vertrek naar Engeland?`,
-  //   `Hoe kan een persoon niet door een vrouw gebaard zijn?`
-  // ];
+  let randomPrompt = client.sentences["inactivePrompts"][random(0, 3)].message;
 
-  const randomStarter = client.sentences["starters"][random(0, 8)];
+  const getRandomStarter = () => {
+    const unsent = [];
 
-  const embed = new Discord.RichEmbed()
-    .setDescription(randomStarter)
-    .setColor(`#594157`);
+    Object.keys(client.sentences[`starters`]).forEach(starter => {
+      if (client.sentences[`starters`][starter].sent === false) {
+        unsent.push(client.sentences[`starters`][starter]);
+      }
+    });
 
-  channel.send({ embed: embed });
+    if (unsent.length == 1) {
+      console.log(`no more starters`);
+      randomPrompt = `Dit is mijn laatste onderwerp. Hierna zullen jullie zelf creatief moeten zijn!`;
+      // endInactiveTimer();
+    } else if (unsent.length < 1) {
+      // endInactiveTimer();
+      return;
+    }
+
+    const _randomMessage = unsent[random(0, unsent.length)];
+    Object.keys(client.sentences[`starters`]).forEach(starter => {
+      if (
+        client.sentences[`starters`][starter].message === _randomMessage.message
+      ) {
+        client.sentences[`starters`][starter].sent = true;
+        fs.writeFile(
+          "./assets/sentences.json",
+          JSON.stringify(client.sentences, null, 4),
+          err => {
+            if (err) throw err;
+          }
+        );
+      }
+    });
+
+    return _randomMessage;
+  };
+
+  // const endInactiveTimer = () => {
+  //   channel.send(`!clearInactiveTimeout`);
+  // };
+
+  const lastMessage = () => {
+    channel.send(
+      `Dit is mijn laatste onderwerp. Hierna zullen jullie zelf creatief moeten zijn!`
+    );
+  };
+
+  const randomStarter = getRandomStarter();
+
+  if (randomStarter) {
+    const embed = new Discord.RichEmbed()
+      .setDescription(randomStarter.message)
+      .setColor(`#594157`);
+    channel.send(randomPrompt);
+    channel.send({ embed: embed });
+  } else {
+    console.log(`no more starters`);
+  }
 };

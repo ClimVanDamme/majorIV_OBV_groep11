@@ -57,4 +57,17 @@ module.exports = async (client, reaction, user) => {
       reaction.message.delete(500);
     }
   }
+
+  // GROUP INVITE
+
+  if (reaction.message.embeds[0].title === "Dag vrienden!") {
+    if (!user.bot) {
+      if (reaction.emoji.name === "👍") {
+        reaction.message.channel.send(`${user} gaat mee!`);
+      }
+      if (reaction.emoji.name === "👎") {
+        reaction.message.channel.send(`${user} gaat niet mee.`);
+      }
+    }
+  }
 };

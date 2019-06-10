@@ -1,28 +1,77 @@
 {
-  "starters": {
-    "0": "Drie heksen voorspellen de toekomst van MacBeth, hoe rooskleurig ziet zijn toekomst eruit?",
-    "1": "Ook Banquo krijgt een voorspelling te horen, op welke manier speelt de achterdochtigheid van Macbeth een rol in zijn toekomst?",
-    "2": "Koning Duncan overnacht in het kasteel van Macbeth en zijn vrouw. Wie zorgt ervoor dat de koning de eeuwige slaap vindt?",
-    "3": "Er is een bebloede dolk gevonden bij de dronken, slapende wachters. Hoe is die daar geraakt?",
-    "4": "Hoe komt het dat de wachters hun zijde van het verhaal niet kunnen vertellen?",
-    "5": "Welk duister geheim verklapt de slaapwandelende Lady Macbeth aan haar dienstmeisje?",
-    "6": "Wie zou de familie van edelman Macduff om het leven gebracht hebben na zijn vertrek naar Engeland?",
-    "7": "Hoe kan een persoon niet door een vrouw gebaard zijn?"
-  },
-  "inactivePrompts": {
-    "0": "Koekoek, iemand hier? Ik heb een nieuw onderwerp voor jullie.",
-    "1": "De pauze is voorbij, laten we er terug invliegen.",
-    "2": "Je kan hier een speld horen vallen... Wat vinden jullie hiervan?"
-  },
-  "tips": {
-    "0": "Het decor weerspiegelt de grauwe wereld van Macbeth.",
-    "1": "De grauwe stem gekozen voor Lady Macbeth, verwijst naar haar donkere karakter.",
-    "2": "Macbeth wordt gezongen door een Verdi bariton. Verdi is ook de naam van de schrijver."
-  },
-  "videos": {
-    "0": "https://www.youtube.com/watch?v=ncCNBv2Scks"
-  },
-  "muziek": {
-    "0": "https://open.spotify.com/user/operaballetvlaanderen/playlist/4yjarwsFMOX8gAqpD1djV3?si=XydSS9EuQ8etgvYNxABmkg"
-  }
+    "starters": {
+        "0": {
+            "message": "Drie heksen voorspellen de toekomst van MacBeth, hoe rooskleurig ziet zijn toekomst eruit?",
+            "sent": false
+        },
+        "1": {
+            "message": "Ook Banquo krijgt een voorspelling te horen, op welke manier speelt de achterdochtigheid van Macbeth een rol in zijn toekomst?",
+            "sent": false
+        },
+        "2": {
+            "message": "Koning Duncan overnacht in het kasteel van Macbeth en zijn vrouw. Wie zorgt ervoor dat de koning de eeuwige slaap vindt?",
+            "sent": false
+        },
+        "3": {
+            "message": "Er is een bebloede dolk gevonden bij de dronken, slapende wachters. Hoe is die daar geraakt?",
+            "sent": false
+        },
+        "4": {
+            "message": "Hoe komt het dat de wachters hun zijde van het verhaal niet kunnen vertellen?",
+            "sent": false
+        },
+        "5": {
+            "message": "Welk duister geheim verklapt de slaapwandelende Lady Macbeth aan haar dienstmeisje?",
+            "sent": false
+        },
+        "6": {
+            "message": "Wie zou de familie van edelman Macduff om het leven gebracht hebben na zijn vertrek naar Engeland?",
+            "sent": false
+        },
+        "7": {
+            "message": "Hoe kan een persoon niet door een vrouw gebaard zijn?",
+            "sent": false
+        }
+    },
+    "inactivePrompts": {
+        "0": {
+            "message": "Koekoek, iemand hier? Ik heb een nieuw onderwerp voor jullie.",
+            "sent": false
+        },
+        "1": {
+            "message": "De pauze is voorbij, laten we er terug invliegen.",
+            "sent": false
+        },
+        "2": {
+            "message": "Je kan hier een speld horen vallen... Wat vinden jullie hiervan?",
+            "sent": false
+        }
+    },
+    "tips": {
+        "0": {
+            "message": "Drie heksen voorspellen de toekomst van MacBeth, hoe rooskleurig ziet zijn toekomst eruit?",
+            "sent": false,
+            "type": "tip"
+        },
+        "1": {
+            "message": "De grauwe stem gekozen voor Lady Macbeth, verwijst naar haar donkere karakter.",
+            "sent": false,
+            "type": "tip"
+        },
+        "2": {
+            "message": "Macbeth wordt gezongen door een Verdi bariton. Verdi is ook de naam van de schrijver.",
+            "sent": false,
+            "type": "tip"
+        },
+        "3": {
+            "message": "https://www.youtube.com/watch?v=ncCNBv2Scks",
+            "sent": false,
+            "type": "video"
+        },
+        "4": {
+            "message": "https://open.spotify.com/user/operaballetvlaanderen/playlist/4yjarwsFMOX8gAqpD1djV3?si=XydSS9EuQ8etgvYNxABmkg",
+            "sent": false,
+            "type": "music"
+        }
+    }
 }

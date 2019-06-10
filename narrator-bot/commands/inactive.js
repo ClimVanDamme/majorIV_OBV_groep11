@@ -8,13 +8,9 @@ module.exports = client => {
   //   `Je kan hier een speld horen vallen. Wat vinden jullie hiervan?`
   // ];
 
-  const randomPrompt = client.sentences["inactivePrompts"][random(0, 3)];
-
   if (client.channels.find(c => c.name === `podium`)) {
-    client.channels.find(c => c.name === `podium`).send(randomPrompt);
     conversationStarter(client, client.channels.find(c => c.name === `podium`));
   } else if (client.channels.find(c => c.name === `general`)) {
-    client.channels.find(c => c.name === `general`).send(randomPrompt);
     conversationStarter(
       client,
       client.channels.find(c => c.name === `general`)
