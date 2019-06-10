@@ -70,13 +70,13 @@ exports.update = async (req, res) => {
   // if (!req.body.user_id) {
   //   return res.status(400).send("user_id can not be empty");
   // }
-  if (!req.body.character_id) {
+  if (!req.body.characterId) {
     return res.status(400).send("character_id can not be empty");
   }
   // if (!req.body.chat_id) {
   //   return res.status(400).send("chat_id can not be empty");
   // }
-  if (!req.body.show_id) {
+  if (!req.body.showId) {
     return res.status(400).send("show_id can not be empty");
   }
 
@@ -85,16 +85,15 @@ exports.update = async (req, res) => {
   }
 
   try {
-    const connection = await connection.findOneAndUpdate(
+    const connection = await Connection.findOneAndUpdate(
       {
         _id: req.params.connectionId,
         user_id: req.authUserId
       },
       {
         user_id: req.authUserId,
-        character_id: req.body.character_id,
-        // chat_id: req.body.chat_id,
-        show_id: req.body.show_id,
+        character_id: req.body.characterId,
+        show_id: req.body.showId,
         characterSet: req.body.characterSet
       },
       {

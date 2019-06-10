@@ -49,6 +49,10 @@ class ConnectionStore {
     runInAction(() => this.connections.push(connection));
   };
 
+  updateConnection = connection => {
+    this.api.update(connection).then(values => connection.setValues(values));
+  };
+
   getById = id => {
     return this.connections.find(check => check.id === id);
   };
