@@ -1,5 +1,6 @@
 :global(:root){
   --font-base: 1.8rem;
+  --font-xxs: 1.4rem
 }
 
 .titleTab {

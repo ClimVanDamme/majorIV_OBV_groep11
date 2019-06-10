@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <>
       <section className={`${stylesLayout.content}`}>
-        <h3 className={stylesTypo.titleMini}>Login</h3>
+        <h3 className={stylesTypo.titleTab}>Welkom terug</h3>
         <LoginForm />
       </section>
       <TabBar />

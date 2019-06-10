@@ -43,7 +43,7 @@ const LoginForm = ({ uiStore, history }) => {
       </form>
 
       <p className={stylesForm.metaAction}>
-        No account? <Link to={ROUTES.register}>Sign up!</Link>
+        <Link to={ROUTES.register}>geen account? Registreer nu!</Link>
       </p>
     </>
   );

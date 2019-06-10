@@ -13,11 +13,13 @@
   display: block;
   outline: none;
   border: 0;
-  border-radius: .3rem;
-  background-color: var(--success-color);
-  color: var(--dark-color);
-  padding: 1.5rem 3rem;
-  font-size: 1.6rem;
+  border-radius: .7rem;
+  background-color: var(--dark-purple-color);
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .button:active {

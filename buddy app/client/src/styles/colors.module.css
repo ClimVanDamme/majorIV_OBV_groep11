@@ -1,6 +1,8 @@
 :global(:root){
   --dark-purple-color: #594157;
+--medium-purple-color: #C7BAC4;
   --dark-gray-color: #404040;
+  --medium-gray-color: #5B5B5B;
   --light-pink-color: #F5E6E8;
   --pink-color: #E6C1C5;
 }

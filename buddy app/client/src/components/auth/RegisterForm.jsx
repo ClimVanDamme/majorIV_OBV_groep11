@@ -3,6 +3,7 @@ import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import stylesForm from "../../styles/form.module.css";
+import { Link } from "react-router-dom";
 
 class RegisterForm extends Component {
   constructor() {
@@ -65,8 +66,9 @@ class RegisterForm extends Component {
           </label>
           <label htmlFor="gender">
             Geslacht
-            <div>
+            <div className={stylesForm.inlineFields}>
               <input
+                className={stylesForm.radioButton}
                 type="radio"
                 id="gender-male"
                 name="gender"
@@ -75,6 +77,7 @@ class RegisterForm extends Component {
               />
               <label htmlFor="gender-male">Man</label>
               <input
+                className={stylesForm.radioButton}
                 type="radio"
                 id="gender-female"
                 name="gender"
@@ -132,10 +135,13 @@ class RegisterForm extends Component {
           </label>
           <input
             type="submit"
-            value="Register"
+            value="Registreren"
             className={stylesForm.button}
             disabled={pwd && pwd !== pwd2}
           />
+          <Link className={stylesForm.metaAction} to="/signin">
+            Hier al geweest? Inloggen maar!
+          </Link>
         </form>
       </>
     );
