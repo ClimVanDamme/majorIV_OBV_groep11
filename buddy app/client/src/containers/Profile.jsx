@@ -4,6 +4,7 @@ import React from "react";
 import TabBar from "../components/TabBar";
 import CharacterList from "../components/CharacterList";
 import { inject, observer } from "mobx-react";
+import withAuthentication from "../components/auth/WithAuthentication";
 
 const Profile = ({ uiStore, connectionStore }) => {
   return (
@@ -27,4 +28,6 @@ const Profile = ({ uiStore, connectionStore }) => {
   );
 };
 
-export default inject(`uiStore`, `connectionStore`)(observer(Profile));
+export default inject(`uiStore`, `connectionStore`)(
+  withAuthentication(observer(Profile))
+);

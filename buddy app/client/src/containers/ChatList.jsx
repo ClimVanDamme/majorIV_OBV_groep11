@@ -5,6 +5,7 @@ import TabBar from "../components/TabBar";
 import { inject, PropTypes, observer } from "mobx-react";
 import ChatListItem from "../components/ChatListItem";
 import ProfileButton from "../components/ProfileButton";
+import withAuthentication from "../components/auth/WithAuthentication";
 
 const ChatList = ({ chatStore }) => {
   const { chats } = chatStore;
@@ -38,4 +39,4 @@ ChatList.propTypes = {
   chatStore: PropTypes.observableObject.isRequired
 };
 
-export default inject(`chatStore`)(observer(ChatList));
+export default inject(`chatStore`)(withAuthentication(observer(ChatList)));

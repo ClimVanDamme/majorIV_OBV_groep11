@@ -4,6 +4,7 @@ import React from "react";
 import TabBar from "../components/TabBar";
 import ShowDetails from "../components/ShowDetails";
 import { inject, PropTypes, observer } from "mobx-react";
+import withAuthentication from "../components/auth/WithAuthentication";
 
 const Detail = ({
   showStore,
@@ -46,4 +47,4 @@ export default inject(
   `characterStore`,
   `connectionStore`,
   `uiStore`
-)(observer(Detail));
+)(withAuthentication(observer(Detail)));

@@ -6,6 +6,7 @@ import ShowList from "../components/ShowList";
 import ProfileButton from "../components/ProfileButton";
 import Filter from "../components/Filter";
 import { inject, observer } from "mobx-react";
+import withAuthentication from "../components/auth/WithAuthentication";
 
 const Shows = ({ showStore }) => {
   return (
@@ -23,4 +24,4 @@ const Shows = ({ showStore }) => {
   );
 };
 
-export default inject(`showStore`)(observer(Shows));
+export default inject(`showStore`)(withAuthentication(observer(Shows)));

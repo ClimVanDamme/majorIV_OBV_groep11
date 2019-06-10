@@ -4,6 +4,7 @@ import React from "react";
 import TabBar from "../components/TabBar";
 import CharacterDetails from "../components/CharacterDetails";
 import { inject, PropTypes, observer } from "mobx-react";
+import withAuthentication from "../components/auth/WithAuthentication";
 
 const CharacterDetail = ({ id, characterStore }) => {
   const character = characterStore.getById(id);
@@ -25,4 +26,6 @@ CharacterDetail.propTypes = {
   characterStore: PropTypes.observableObject.isRequired
 };
 
-export default inject(`characterStore`)(observer(CharacterDetail));
+export default inject(`characterStore`)(
+  withAuthentication(observer(CharacterDetail))
+);
