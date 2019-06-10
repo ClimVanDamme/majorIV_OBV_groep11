@@ -2,7 +2,6 @@ import React from "react";
 
 import stylesLayout from "../styles/layout.module.css";
 import stylesTypo from "../styles/typo.module.css";
-import TabBar from "../components/TabBar";
 
 import RegisterForm from "../components/auth/RegisterForm";
 
@@ -13,7 +12,6 @@ const Register = () => {
         <h3 className={stylesTypo.titleTab}>Hello</h3>
         <RegisterForm />
       </section>
-      <TabBar />
     </>
   );
 };
