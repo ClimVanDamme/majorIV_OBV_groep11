@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { inject, PropTypes, observer } from "mobx-react";
+import PropTypes from "prop-types";
+import { observer } from "mobx-react";
 
-const CharacterList = ({ connectionStore }) => {
-  const { connections } = connectionStore;
+const CharacterList = ({ connections }) => {
   return (
     <ul>
       {connections.map(conn => (
@@ -18,7 +18,7 @@ const CharacterList = ({ connectionStore }) => {
 };
 
 CharacterList.propTypes = {
-  connectionStore: PropTypes.observableObject.isRequired
+  connections: PropTypes.object.isRequired
 };
 
-export default inject(`connectionStore`)(observer(CharacterList));
+export default observer(CharacterList);
