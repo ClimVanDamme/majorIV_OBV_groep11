@@ -6,7 +6,7 @@ import styles from "./ShowList.module.css";
 const ShowList = ({ showStore }) => {
   const { shows } = showStore;
   return (
-    <ul>
+    <ul className={styles.showGrid}>
       {shows.length > 0 ? (
         shows.map(show => (
           <li key={show.title}>

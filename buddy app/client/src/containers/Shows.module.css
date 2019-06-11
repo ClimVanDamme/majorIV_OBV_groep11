@@ -1,11 +1,32 @@
 .title{
   composes: titleTab from "../styles/typo.module.css";
+  grid-area: title;
 }
 
 .hidden {
   composes: visually-hidden from "../styles/index.css";
 }
 
-.wrapper{
-  margin: 0 auto;
+.profile {
+  grid-area: profile;
+}
+
+.filter {
+  grid-area: filter;
+}
+
+.shows {
+  grid-area: shows;
+}
+
+.container {
+  display: grid;
+    grid-template-columns: 1.6rem 1fr 1.6rem;
+
+    grid-template-areas:
+    ' . profile . '
+    ' . title . '
+    ' . filter . '
+    ' . shows . ';
+
 }

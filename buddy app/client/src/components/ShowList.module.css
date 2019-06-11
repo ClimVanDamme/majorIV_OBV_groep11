@@ -1,11 +1,9 @@
 
 .listItem {
     display: grid;
-    grid-template-columns: 1.5rem 1fr;
+    grid-template-columns: 1.5rem 26.5rem;
     grid-template-rows: 6.6rem 3.5rem 1.5rem;
     height: 11.6rem;
-
-    margin-bottom: 2rem;
   
     /* @media (--m) {
       grid-template-columns: 4fr 2fr 1rem;
@@ -27,6 +25,14 @@
     align-self: flex-end;
     color: white;
     z-index: 1;
+}
+
+.showGrid{
+  display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+    justify-items: center;
 }
 
 .showImg {

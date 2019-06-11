@@ -12,16 +12,19 @@ const Shows = ({ showStore }) => {
   return (
     <>
       <h1 className={styles.hidden}>Voorstellingen</h1>
-      <section>
-        <ProfileButton />
-
-        <div className={styles.wrapper}>
-          <h2 className={styles.title}>Voorstellingen</h2>
-          <ShowList />
+      <section className={styles.container}>
+        <div className={styles.profile}>
+          <ProfileButton />
+        </div>
+        <h2 className={styles.title}>Voorstellingen</h2>
+        <div className={styles.filter}>
           <Filter
             categories={showStore.categories}
             setFilter={showStore.setFilter}
           />
+        </div>
+        <div className={styles.shows}>
+          <ShowList />
         </div>
       </section>
       <TabBar />
