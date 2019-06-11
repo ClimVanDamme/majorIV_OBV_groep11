@@ -13,19 +13,11 @@ const Shows = ({ showStore }) => {
     <>
       <h1 className={styles.hidden}>Voorstellingen</h1>
       <section className={styles.container}>
-<<<<<<< HEAD
         <div className={styles.profile}>
           <ProfileButton />
         </div>
         <h2 className={styles.title}>Voorstellingen</h2>
         <div className={styles.filter}>
-=======
-        <ProfileButton />
-
-        <div className={styles.wrapper}>
-          <h2 className={styles.title}>Voorstellingen</h2>
-          <ShowList />
->>>>>>> css voor de showlist
           <Filter
             categories={showStore.categories}
             setFilter={showStore.setFilter}
