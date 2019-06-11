@@ -27,6 +27,10 @@ class Connection {
     return this.store.characterStore.resolveCharacter(this.characterId);
   }
 
+  get show() {
+    return this.store.showStore.resolveShow(this.showId);
+  }
+
   get values() {
     return {
       // userId: this.userId,
