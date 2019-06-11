@@ -17,11 +17,10 @@
     box-shadow: 0px -1px 5px rgba(50, 50, 50, 0.15);
 
 }
-/* .tabBar svg {
-  display: block;
-  max-height: 3rem;
-  margin-bottom: .5rem;
-} */
+.active svg .st0_1 {fill: #594157;}
+
+.active svg .st2_1, .active svg .st3_1 {fill: #594157;}
+
 .tabBar a {
   color: #969696;
   /* font-size: 0; */
@@ -31,23 +30,21 @@
 .tabBar a:focus {
   outline: .1rem dashed var(--dark-purple-color);
 }
-.tabBar a:nth-child(2) {
-  color: blue;
-}
-.tabBar .active {
-  color: blue;
-}
-.tabBar .active svg { fill: #fff; }
 
-.chat {
-  width: 6.2rem;
-  /* height: 100%; */
-}
+
 
 .st0{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st0_1{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st0_active{fill:#594157;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
 
 .st1{fill:#FFFFFF;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
 
 .st2{fill:#FFFFFF;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
 
+.st2_1{fill:#FFFFFF;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
 .st3{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st3_1{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
