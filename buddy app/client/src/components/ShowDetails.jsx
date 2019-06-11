@@ -19,6 +19,9 @@ const ShowDetails = ({
   const [ownCharacter, setOwnCharacter] = useState({});
   const connection = getConnection(show.id);
   const colorClass = show.title.replace(/\s+/g, `-`).toLowerCase();
+  const showImage = `./../assets/img/shows/${show.title
+    .replace(/\s+/g, ``)
+    .toLowerCase()}.jpg`;
 
   useEffect(() => {
     const character = ownCharacter;
@@ -69,12 +72,21 @@ const ShowDetails = ({
             </g>
           </svg>
         </button>
-        <p className={styles.title}>{show.title}</p>
-        <p className={styles.stat}>{show.length} min.</p>
+        <div className={styles.header}>
+          <p className={styles.title}>{show.title}</p>
+          <img className={styles.thumbnail} src={showImage} alt={show.title} />
+          <p className={styles.stat}>{show.length} min.</p>
+        </div>
         <p className={styles.desc}>{show.description}</p>
-        <Link className={styles.button} to={ROUTES.chat}>
+        <Link
+          className={`${styles.button} ${styles.button_prim}`}
+          to={ROUTES.chat}
+        >
           Chatten als mijn personage
         </Link>
+        <button className={`${styles.button} ${styles.button_alt}`}>
+          Tickets bestellen
+        </button>
         <div>
           {show.characters.map(character => (
             <CharacterQuote key={character.name} character={character} />
@@ -111,8 +123,11 @@ const ShowDetails = ({
             </g>
           </svg>
         </button>
-        <p className={styles.title}>{show.title}</p>
-        <p className={styles.stat}>{show.length} min.</p>
+        <div className={styles.header}>
+          <p className={styles.title}>{show.title}</p>
+          <img className={styles.thumbnail} src={showImage} alt={show.title} />
+          <p className={styles.stat}>{show.length} min.</p>
+        </div>
         <p className={styles.desc}>{show.description}</p>
         <button
           className={`${styles.button} ${styles.button_prim}`}
