@@ -12,13 +12,50 @@ const ShowList = ({ showStore }) => {
           <li key={show.title} className={styles.showWrapper}>
             <Link to={`/shows/${show.id}`} className={styles.listItem}>
               <h3 className={styles.showTitle}>{show.title}</h3>
-              <img
+
+              {/* <img
                 className={styles.showImg}
                 src={`./assets/img/${show.title
                   .replace(/\s+/g, `-`)
                   .toLowerCase()}.png`}
                 alt={`sfeerbeeld uit ${show.title}`}
-              />
+              /> */}
+
+              <picture className={styles.showImg}>
+                <source
+                  media="(max-width: 607px)"
+                  srcSet={`./assets/img/${show.title
+                    .replace(/\s+/g, `-`)
+                    .toLowerCase()}.png`}
+                />
+
+                <source
+                  media="(max-width: 1920px)"
+                  srcSet={`./assets/img/${show.title
+                    .replace(/\s+/g, `-`)
+                    .toLowerCase()}-sm.png`}
+                />
+                {/* <source
+
+                  // srcSet={`./assets/img/${show.title
+                  //   .replace(/\s+/g, `-`)
+                  //   .toLowerCase()}-sm.png 608w, ./assets/img/${show.title
+                  //   .replace(/\s+/g, `-`)
+                  //   .toLowerCase()}.png 320w`}
+      
+
+                  sizes="100vw"
+                  type="image/png"
+                /> */}
+
+                <img
+                  width="278"
+                  src={`./assets/img/${show.title
+                    .replace(/\s+/g, `-`)
+                    .toLowerCase()}.png`}
+                  alt={`sfeerbeeld uit ${show.title}`}
+                />
+              </picture>
             </Link>
           </li>
         ))

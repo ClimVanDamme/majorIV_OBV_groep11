@@ -7,7 +7,6 @@
   composes: visually-hidden from "../styles/index.css";
 }
 
-<<<<<<< HEAD
 .profile {
   grid-area: profile;
 }
