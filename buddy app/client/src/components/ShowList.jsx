@@ -9,7 +9,7 @@ const ShowList = ({ showStore }) => {
     <ul className={styles.showGrid}>
       {shows.length > 0 ? (
         shows.map(show => (
-          <li key={show.title}>
+          <li key={show.title} className={styles.showWrapper}>
             <Link to={`/shows/${show.id}`} className={styles.listItem}>
               <h3 className={styles.showTitle}>{show.title}</h3>
               <img

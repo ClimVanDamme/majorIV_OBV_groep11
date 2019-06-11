@@ -30,7 +30,7 @@
         },
         "7": {
             "message": "Hoe kan een persoon niet door een vrouw gebaard zijn?",
-            "sent": false
+            "sent": true
         }
     },
     "inactivePrompts": {
@@ -70,7 +70,7 @@
         },
         "4": {
             "message": "https://open.spotify.com/user/operaballetvlaanderen/playlist/4yjarwsFMOX8gAqpD1djV3?si=XydSS9EuQ8etgvYNxABmkg",
-            "sent": false,
+            "sent": true,
             "type": "music"
         }
     }

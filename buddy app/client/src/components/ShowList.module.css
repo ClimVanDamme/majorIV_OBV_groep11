@@ -1,7 +1,11 @@
 
 .listItem {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: 1.5rem 26.5rem;
+=======
+    grid-template-columns: 1.5rem 1fr 1.5rem;
+>>>>>>> css voor de showlist
     grid-template-rows: 6.6rem 3.5rem 1.5rem;
     height: 11.6rem;
   
@@ -38,4 +42,13 @@
 .showImg {
     grid-row: 1;
     grid-column: 1;
+}
+
+.list {
+  display: grid;
+  justify-items: center;
+}
+
+.showWrapper {
+  width: 100%;
 }

@@ -7,6 +7,7 @@
   composes: visually-hidden from "../styles/index.css";
 }
 
+<<<<<<< HEAD
 .profile {
   grid-area: profile;
 }
@@ -29,4 +30,13 @@
     ' . filter . '
     ' . shows . ';
 
+=======
+.wrapper{
+  margin: 0 auto;
+}
+
+.container {
+  margin: 2rem auto 0 auto;
+  width: 100%;
+>>>>>>> css voor de showlist
 }
