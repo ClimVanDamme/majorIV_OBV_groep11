@@ -25,6 +25,8 @@
 .tabBar a {
   color: #969696;
   /* font-size: 0; */
+  flex: 1;
+  text-align: center;
 }
 .tabBar a:focus {
   outline: .1rem dashed var(--dark-purple-color);
@@ -41,3 +43,11 @@
   width: 6.2rem;
   /* height: 100%; */
 }
+
+.st0{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st1{fill:#FFFFFF;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st2{fill:#FFFFFF;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}
+
+.st3{fill:none;stroke:#594157;stroke-width:1.6;stroke-linecap:round;stroke-miterlimit:10;}

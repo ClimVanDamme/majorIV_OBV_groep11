@@ -9,7 +9,7 @@ const Register = () => {
   return (
     <>
       <section className={`${stylesLayout.content}`}>
-        <h3 className={stylesTypo.titleTab}>Hello</h3>
+        <h3 className={stylesTypo.titleTab}>Hallo</h3>
         <RegisterForm />
       </section>
     </>
