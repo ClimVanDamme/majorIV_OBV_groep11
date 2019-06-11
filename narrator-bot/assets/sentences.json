@@ -30,7 +30,7 @@
         },
         "7": {
             "message": "Hoe kan een persoon niet door een vrouw gebaard zijn?",
-            "sent": true
+            "sent": false
         }
     },
     "inactivePrompts": {
@@ -50,22 +50,22 @@
     "tips": {
         "0": {
             "message": "Drie heksen voorspellen de toekomst van MacBeth, hoe rooskleurig ziet zijn toekomst eruit?",
-            "sent": false,
+            "sent": true,
             "type": "tip"
         },
         "1": {
             "message": "De grauwe stem gekozen voor Lady Macbeth, verwijst naar haar donkere karakter.",
-            "sent": false,
+            "sent": true,
             "type": "tip"
         },
         "2": {
             "message": "Macbeth wordt gezongen door een Verdi bariton. Verdi is ook de naam van de schrijver.",
-            "sent": false,
+            "sent": true,
             "type": "tip"
         },
         "3": {
             "message": "https://www.youtube.com/watch?v=ncCNBv2Scks",
-            "sent": false,
+            "sent": true,
             "type": "video"
         },
         "4": {
