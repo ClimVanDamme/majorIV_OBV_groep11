@@ -26,3 +26,16 @@
   color: #fff;
   background-color: var(--dark-color);
 }
+
+.button_alt {
+  display: block;
+  outline: none;
+  border: 0;
+  border-radius: .7rem;
+  background-color: white;
+  color: var(--dark-purple-color);
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}

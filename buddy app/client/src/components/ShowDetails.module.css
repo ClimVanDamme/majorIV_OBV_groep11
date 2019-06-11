@@ -1,0 +1,54 @@
+.back {
+  background-color: var(--dark-purple-color);
+  border: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+}
+
+.back svg{
+  padding-top: .2rem;
+}
+
+.st0{fill:none;stroke:white;stroke-width:1.8333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+.st1{fill:white;stroke:white;stroke-width:1.8333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+.container{
+  padding: 2rem;
+  color: var(--pink-color);
+}
+
+.title{
+  composes: showTitle from "../styles/typo.module.css";
+}
+
+.desc{
+  color: var(--dark-gray-color);
+  font-size: var(--font-base);
+  font-weight: 300
+}
+
+.macbeth{
+  padding: 2rem;
+  color: var(--pink-color);
+}
+
+.button_prim{
+  composes: button from "../styles/uiControls.module.css";
+}
+
+.button{
+  width: 27.2rem;
+  margin: 0 auto;
+}
+
+.button_alt{
+  composes: button_alt from "../styles/uiControls.module.css";
+}
+
+.stat{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--dark-purple-color);
+}

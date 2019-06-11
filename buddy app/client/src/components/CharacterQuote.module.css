@@ -1,0 +1,14 @@
+.quote {
+  color: var(--dark-gray-color);
+  font-size: var(--font-base);
+  margin: 1rem;
+  text-align: center;
+}
+
+.item{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 24.4rem;
+  margin: 0 auto;
+}

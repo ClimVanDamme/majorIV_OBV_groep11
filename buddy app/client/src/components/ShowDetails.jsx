@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { values } from "mobx";
 import { ROUTES } from "../constants";
+import styles from "./ShowDetails.module.css";
 
 // import { observer } from "mobx-react";
 
@@ -17,6 +18,7 @@ const ShowDetails = ({
 }) => {
   const [ownCharacter, setOwnCharacter] = useState({});
   const connection = getConnection(show.id);
+  const colorClass = show.title.replace(/\s+/g, `-`).toLowerCase();
 
   useEffect(() => {
     const character = ownCharacter;
@@ -41,31 +43,93 @@ const ShowDetails = ({
 
   if (connection && connection.characterSet === true) {
     return (
-      <div>
-        <p>{show.title}</p>
-        <p>{show.description}</p>
-        <Link to={ROUTES.chat}>Chatten als mijn personage</Link>
-        {show.characters.map(character => (
-          <CharacterQuote key={character.name} character={character} />
-        ))}
+      <div className={styles[colorClass]}>
+        <button className={styles.back} onClick={() => history.push(`/shows`)}>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="12.8px"
+            height="11px"
+            viewBox="0 0 12.8 11"
+          >
+            <g>
+              <polyline
+                className={styles.st0}
+                points="11.9,5.5 0.9,5.5 5.5,0.9 	"
+              />
+              <line
+                className={styles.st1}
+                x1="0.9"
+                y1="5.5"
+                x2="5.5"
+                y2="10.1"
+              />
+            </g>
+          </svg>
+        </button>
+        <p className={styles.title}>{show.title}</p>
+        <p className={styles.stat}>{show.length} min.</p>
+        <p className={styles.desc}>{show.description}</p>
+        <Link className={styles.button} to={ROUTES.chat}>
+          Chatten als mijn personage
+        </Link>
+        <div>
+          {show.characters.map(character => (
+            <CharacterQuote key={character.name} character={character} />
+          ))}
+        </div>
         <p>{connection.character.name}</p>
       </div>
     );
   } else {
     return (
-      <div>
-        <p>{show.title}</p>
-        <p>{show.description}</p>
+      <div className={styles[colorClass]}>
+        <button className={styles.back} onClick={() => history.push(`/shows`)}>
+          <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="12.8px"
+            height="11px"
+            viewBox="0 0 12.8 11"
+          >
+            <g>
+              <polyline
+                className={styles.st0}
+                points="11.9,5.5 0.9,5.5 5.5,0.9 	"
+              />
+              <line
+                className={styles.st1}
+                x1="0.9"
+                y1="5.5"
+                x2="5.5"
+                y2="10.1"
+              />
+            </g>
+          </svg>
+        </button>
+        <p className={styles.title}>{show.title}</p>
+        <p className={styles.stat}>{show.length} min.</p>
+        <p className={styles.desc}>{show.description}</p>
         <button
+          className={`${styles.button} ${styles.button_prim}`}
           onClick={() => {
             setOwnCharacter(getRandomCharacter(show.characters));
           }}
         >
           Geef mij een personage
         </button>
-        {show.characters.map(character => (
-          <CharacterQuote key={character.name} character={character} />
-        ))}
+        <button className={`${styles.button} ${styles.button_alt}`}>
+          Tickets bestellen
+        </button>
+        <div>
+          {show.characters.map(character => (
+            <CharacterQuote key={character.name} character={character} />
+          ))}
+        </div>
       </div>
     );
   }

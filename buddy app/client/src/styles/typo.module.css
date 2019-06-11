@@ -1,5 +1,6 @@
 :global(:root){
   --font-base: 1.8rem;
+  --font-xs: 1.5rem;
   --font-xxs: 1.4rem
 }
 
@@ -9,6 +10,12 @@
   margin-bottom: 1.5rem;
   text-transform: uppercase;
   color: var(--dark-purple-color);
+}
+.showTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 .titleSmall {
   display: block;
