@@ -17,7 +17,9 @@ const CharacterList = ({ connections }) => {
             >
               <img
                 className={styles.img}
-                src={`./assets/img/characters/${conn.character.name
+                src={`${
+                  process.env.PUBLIC_URL
+                }/assets/img/characters/${conn.character.name
                   .replace(/\s+/g, ``)
                   .toLowerCase()}.png`}
                 alt={conn.character.name}

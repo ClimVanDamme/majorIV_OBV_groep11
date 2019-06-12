@@ -31,7 +31,7 @@ const ShowList = ({ showStore }) => {
 
                 <source
                   media="(max-width: 1920px)"
-                  srcSet={`%PUBLIC_URL%/assets/img/${show.title
+                  srcSet={`/assets/img/${show.title
                     .replace(/\s+/g, `-`)
                     .toLowerCase()}-sm.png`}
                 />
