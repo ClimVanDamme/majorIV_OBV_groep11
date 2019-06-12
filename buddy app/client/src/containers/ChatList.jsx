@@ -9,6 +9,7 @@ import withAuthentication from "../components/auth/WithAuthentication";
 
 const ChatList = ({ chatStore }) => {
   const { chats } = chatStore;
+  console.log(chats.length);
 
   if (chats.length <= 0) {
     return (
