@@ -9,7 +9,7 @@ const CharacterList = ({ connections }) => {
     <ul className={styles.tileGrid}>
       {connections.map(conn => (
         <li key={conn.id}>
-          <Link to={`/characters/${conn.character.id}`}>
+          <Link to={`/characters/acc/${conn.character.id}`}>
             <img
               className={`${styles.tile} ${
                 styles[conn.show.title.replace(/\s+/g, ``).toLowerCase()]

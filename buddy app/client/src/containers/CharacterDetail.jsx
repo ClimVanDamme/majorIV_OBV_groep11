@@ -6,7 +6,7 @@ import CharacterDetails from "../components/CharacterDetails";
 import { inject, PropTypes, observer } from "mobx-react";
 import withAuthentication from "../components/auth/WithAuthentication";
 
-const CharacterDetail = ({ id, characterStore }) => {
+const CharacterDetail = ({ id, comingFrom, characterStore }) => {
   const character = characterStore.getById(id);
   if (!character) {
     return <p>Loading</p>;
@@ -15,7 +15,7 @@ const CharacterDetail = ({ id, characterStore }) => {
   return (
     <>
       <section>
-        <CharacterDetails character={character} />
+        <CharacterDetails character={character} comingFrom={comingFrom} />
       </section>
       <TabBar />
     </>

@@ -34,7 +34,7 @@ const ShowDetails = ({
         character_id: character.id,
         characterSet: true
       });
-      history.push(`/characters/${character.id}`);
+      history.push(`/characters/show/${character.id}`);
     }
   }, [ownCharacter]);
   // const handleOnClick = () => {
@@ -83,7 +83,7 @@ const ShowDetails = ({
           <img
             className={styles.myCharacter}
             width="320"
-            src={`./../assets/img/characters/${connection.character.name
+            src={`/assets/img/characters/${connection.character.name
               .replace(/\s+/g, ``)
               .toLowerCase()}.png`}
             alt={connection.character.name}
@@ -152,17 +152,19 @@ const ShowDetails = ({
           <p className={styles.stat}>{show.length} min.</p>
         </div>
         <p className={styles.desc}>{show.description}</p>
-        <button
-          className={`${styles.button} ${styles.button_prim}`}
-          onClick={() => {
-            setOwnCharacter(getRandomCharacter(show.characters));
-          }}
-        >
-          Geef mij een personage
-        </button>
-        <button className={`${styles.button} ${styles.button_alt}`}>
-          Tickets bestellen
-        </button>
+        <div className={styles.buttonWrapper}>
+          <button
+            className={`${styles.button} ${styles.button_prim}`}
+            onClick={() => {
+              setOwnCharacter(getRandomCharacter(show.characters));
+            }}
+          >
+            Geef mij een personage
+          </button>
+          <button className={`${styles.button} ${styles.button_alt}`}>
+            Tickets bestellen
+          </button>
+        </div>
         <div>
           {show.characters.map(character => (
             <CharacterQuote key={character.name} character={character} />

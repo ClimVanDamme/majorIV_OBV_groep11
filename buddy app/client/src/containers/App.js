@@ -23,10 +23,7 @@ const App = ({ uiStore }) => {
           component={uiStore.authUser ? ChatList : Login}
         />
         <Route path={ROUTES.chat} exact strict component={ChatList} />
-        <Route
-          path={ROUTES.chatroom}
-          render={({ match }) => <Chatroom id={match.params.id} />}
-        />
+        <Route path={ROUTES.chatroom} render={({ match }) => <Chatroom />} />
         <Route path={ROUTES.shows} exact component={Shows} />
         <Route
           path={ROUTES.showdetail}
@@ -34,7 +31,12 @@ const App = ({ uiStore }) => {
         />
         <Route
           path={ROUTES.characterdetail}
-          render={({ match }) => <CharacterDetail id={match.params.id} />}
+          render={({ match }) => (
+            <CharacterDetail
+              id={match.params.id}
+              comingFrom={match.params.comingFrom}
+            />
+          )}
         />
         <Route path={ROUTES.profile} component={Profile} />
         <Route path={ROUTES.login} component={Login} />

@@ -24,14 +24,14 @@ const ShowList = ({ showStore }) => {
               <picture className={styles.showImg}>
                 <source
                   media="(max-width: 607px)"
-                  srcSet={`./assets/img/${show.title
+                  srcSet={`/assets/img/${show.title
                     .replace(/\s+/g, `-`)
                     .toLowerCase()}.png`}
                 />
 
                 <source
                   media="(max-width: 1920px)"
-                  srcSet={`./assets/img/${show.title
+                  srcSet={`%PUBLIC_URL%/assets/img/${show.title
                     .replace(/\s+/g, `-`)
                     .toLowerCase()}-sm.png`}
                 />
@@ -50,7 +50,7 @@ const ShowList = ({ showStore }) => {
 
                 <img
                   width="278"
-                  src={`./assets/img/${show.title
+                  src={`%PUBLIC_URL%/assets/img/${show.title
                     .replace(/\s+/g, `-`)
                     .toLowerCase()}.png`}
                   alt={`sfeerbeeld uit ${show.title}`}

@@ -37,7 +37,10 @@ class ShowStore {
   _addShow = values => {
     const show = new Show(this.rootStore);
     show.setValues(values);
-    runInAction(() => this._shows.push(show));
+    const duplicateShow = this._shows.find(show => show.id === values._id);
+    if (!duplicateShow) {
+      runInAction(() => this._shows.push(show));
+    }
   };
 
   resolveShow = showId => this._shows.find(show => show.id === showId);
