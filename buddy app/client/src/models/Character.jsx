@@ -3,6 +3,7 @@ import { decorate, observable, action, computed } from "mobx";
 
 class Character {
   constructor(
+    store,
     name,
     traits,
     personality,
@@ -13,6 +14,7 @@ class Character {
     id = uuid.v4()
   ) {
     this.id = id;
+    this.store = store;
     this.name = name;
     this.traits = traits;
     this.personality = personality;
@@ -54,6 +56,10 @@ class Character {
       showId: this.showId
     };
   }
+
+  get show() {
+    return this.store.showStore.resolveShow(this.showId);
+  }
 }
 
 decorate(Character, {
@@ -73,7 +79,8 @@ decorate(Character, {
   setSummary: action,
   setQuote: action,
   setShowId: action,
-  values: computed
+  values: computed,
+  show: computed
 });
 
 export default Character;

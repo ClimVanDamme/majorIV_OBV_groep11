@@ -68,7 +68,8 @@ class ConnectionStore {
 
 decorate(ConnectionStore, {
   connections: observable,
-  addConnection: action
+  addConnection: action,
+  getByShowId: action
 });
 
 export default ConnectionStore;

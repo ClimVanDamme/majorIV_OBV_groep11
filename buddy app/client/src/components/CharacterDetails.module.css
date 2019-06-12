@@ -1,0 +1,103 @@
+.back {
+    background-color: var(--dark-purple-color);
+    border: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+  }
+  
+  .back svg{
+    padding-top: .2rem;
+  }
+
+.st0{fill:none;stroke:white;stroke-width:1.8333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+.st1{fill:white;stroke:white;stroke-width:1.8333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+
+.charImg {
+    width: 25.6rem;
+    grid-column: 2;
+    grid-row: 1/4;
+    padding: 1rem;
+    justify-self: center;
+}
+
+.rect{
+    grid-column: 1/4;
+    grid-row: 2/4;
+    z-index: -1;
+}
+
+.imgGrid {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr 2.4rem;
+    grid-template-rows: 12rem 10rem auto;
+}
+
+.macbeth {
+    background-color: var(--pink-color);
+}
+
+.bachstudies{
+    background-color:var(--orange-color);
+}
+
+.traits {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4rem;
+    max-width: 36rem;
+    font-size: 1.5rem;
+    color: var(--dark-purple-color);
+    font-weight: 700;
+}
+
+.subtitle {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    color: var(--dark-gray-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.paragraph {
+    font-size: 1.8rem;
+    color: var(--dark-gray-color);
+    font-weight: 200;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr 2.4rem;
+    justify-items: center;
+
+    grid-template-areas: 
+    ". personality ."
+    ". story ."
+    ". chat ."
+    ". shareStory ."
+}
+
+.personality {
+    margin-top: 5rem;
+    grid-area: personality;
+    max-width: 48rem;
+}
+
+.story {
+    margin-top: 5rem;
+    grid-area: story;
+    max-width: 48rem;
+}
+
+.chat {
+    grid-area: chat;
+    justify-self: center;
+    margin: 5rem 0rem;
+    max-width: 48rem;
+}
+
+.shareStory {
+    grid-area: shareStory;
+    max-width: 48rem;
+}

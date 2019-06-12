@@ -37,7 +37,7 @@ class CharacterStore {
   };
 
   _addCharacter = values => {
-    const character = new Character();
+    const character = new Character(this.rootStore);
     character.setValues(values);
     runInAction(() => this.characters.push(character));
   };
