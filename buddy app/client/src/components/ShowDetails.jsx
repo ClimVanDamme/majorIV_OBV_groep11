@@ -78,21 +78,44 @@ const ShowDetails = ({
           <p className={styles.stat}>{show.length} min.</p>
         </div>
         <p className={styles.desc}>{show.description}</p>
-        <Link
-          className={`${styles.button} ${styles.button_prim}`}
-          to={ROUTES.chat}
-        >
-          Chatten als mijn personage
-        </Link>
-        <button className={`${styles.button} ${styles.button_alt}`}>
-          Tickets bestellen
-        </button>
+        <div className={styles.myCharacterGrid}>
+          <div className={styles[`${colorClass}Bg`]} />
+          <img
+            className={styles.myCharacter}
+            width="320"
+            src={`./../assets/img/characters/${connection.character.name
+              .replace(/\s+/g, ``)
+              .toLowerCase()}.png`}
+            alt={connection.character.name}
+          />
+          <div className={styles.buttonWrapper}>
+            <Link
+              className={`${styles.button} ${styles.button_prim}`}
+              to={ROUTES.chat}
+            >
+              Chatten als mijn personage
+            </Link>
+            <button className={`${styles.button} ${styles.button_alt}`}>
+              Tickets bestellen
+            </button>
+          </div>
+        </div>
         <div>
           {show.characters.map(character => (
-            <CharacterQuote key={character.name} character={character} />
+            <div key={character.name} className={styles.characterItem}>
+              {/* <CharacterQuote key={character.name} character={character} /> */}
+              <img
+                width="146"
+                height="153"
+                src={`./../assets/img/characters/${character.name
+                  .replace(/\s+/g, ``)
+                  .toLowerCase()}simpel.png`}
+                alt={character.name}
+              />
+              <p className={styles.quote}>{character.quote}</p>
+            </div>
           ))}
         </div>
-        <p>{connection.character.name}</p>
       </div>
     );
   } else {
