@@ -97,16 +97,25 @@ const characters = [
   }
 ].map(item => ({ ...item, _id: mongoose.Types.ObjectId() }));
 
+const chats = [].map(item => ({ ...item, _id: mongoose.Types.ObjectId() }));
+
+const connections = [].map(item => ({
+  ...item,
+  _id: mongoose.Types.ObjectId()
+}));
+
 data[0].documents = shows;
 data[1].documents = characters;
 
 seeder.connect(process.env.DB_URL, function() {
   seeder.loadModels([
     "./app/models/show.model.js",
-    "./app/models/character.model.js"
+    "./app/models/character.model.js",
+    "./app/models/connection.model.js",
+    "./app/models/chat.model.js"
   ]);
 
-  seeder.clearModels(["Show", "Character"], () => {
+  seeder.clearModels(["Show", "Character", "Connection", "Chat"], () => {
     seeder.populateModels(data, () => {
       seeder.disconnect();
     });
