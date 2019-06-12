@@ -9,16 +9,20 @@ const CharacterList = ({ connections }) => {
     <ul className={styles.tileGrid}>
       {connections.map(conn => (
         <li key={conn.id}>
-          <Link to={`/characters/acc/${conn.character.id}`}>
-            <img
+          <Link to={`/characters/${conn.character.id}`}>
+            <div
               className={`${styles.tile} ${
                 styles[conn.show.title.replace(/\s+/g, ``).toLowerCase()]
               }`}
-              src={`./assets/img/characters/${conn.character.name
-                .replace(/\s+/g, ``)
-                .toLowerCase()}.png`}
-              alt={conn.character.name}
-            />
+            >
+              <img
+                className={styles.img}
+                src={`./assets/img/characters/${conn.character.name
+                  .replace(/\s+/g, ``)
+                  .toLowerCase()}.png`}
+                alt={conn.character.name}
+              />
+            </div>
           </Link>
         </li>
       ))}
