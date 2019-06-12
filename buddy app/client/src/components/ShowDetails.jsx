@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { PropTypes } from "prop-types";
-import CharacterQuote from "./CharacterQuote";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { values } from "mobx";
@@ -100,11 +99,12 @@ const ShowDetails = ({
             </button>
           </div>
         </div>
-        <div>
+        <div className={styles.charList}>
           {show.characters.map(character => (
             <div key={character.name} className={styles.characterItem}>
               {/* <CharacterQuote key={character.name} character={character} /> */}
               <img
+                className={styles.characterImg}
                 width="146"
                 height="153"
                 src={`./../assets/img/characters/${character.name
@@ -112,7 +112,7 @@ const ShowDetails = ({
                   .toLowerCase()}simpel.png`}
                 alt={character.name}
               />
-              <p className={styles.quote}>{character.quote}</p>
+              <p className={styles.quote}>{`"${character.quote}"`}</p>
             </div>
           ))}
         </div>
@@ -152,20 +152,38 @@ const ShowDetails = ({
           <p className={styles.stat}>{show.length} min.</p>
         </div>
         <p className={styles.desc}>{show.description}</p>
-        <button
-          className={`${styles.button} ${styles.button_prim}`}
-          onClick={() => {
-            setOwnCharacter(getRandomCharacter(show.characters));
-          }}
-        >
-          Geef mij een personage
-        </button>
-        <button className={`${styles.button} ${styles.button_alt}`}>
-          Tickets bestellen
-        </button>
-        <div>
+
+        <div className={styles.buttonWrapper}>
+          <button
+            className={`${styles.button} ${styles.button_prim}`}
+            onClick={() => {
+              setOwnCharacter(getRandomCharacter(show.characters));
+            }}
+          >
+            Geef mij een personage
+          </button>
+          <button className={`${styles.button} ${styles.button_alt}`}>
+            Tickets bestellen
+          </button>
+        </div>
+
+        <div className={styles.charList}>
           {show.characters.map(character => (
-            <CharacterQuote key={character.name} character={character} />
+            <div
+              key={character.name}
+              className={`${styles.characterItem} ${styles.characterColor}`}
+            >
+              <img
+                className={styles.characterImg}
+                width="146"
+                height="153"
+                src={`./../assets/img/characters/${character.name
+                  .replace(/\s+/g, ``)
+                  .toLowerCase()}simpel.png`}
+                alt={character.name}
+              />
+              <p className={styles.quote}>{`"${character.quote}"`}</p>
+            </div>
           ))}
         </div>
       </div>

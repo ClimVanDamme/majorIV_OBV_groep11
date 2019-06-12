@@ -10,15 +10,19 @@ const CharacterList = ({ connections }) => {
       {connections.map(conn => (
         <li key={conn.id}>
           <Link to={`/characters/${conn.character.id}`}>
-            <img
+            <div
               className={`${styles.tile} ${
                 styles[conn.show.title.replace(/\s+/g, ``).toLowerCase()]
               }`}
-              src={`./assets/img/characters/${conn.character.name
-                .replace(/\s+/g, ``)
-                .toLowerCase()}.png`}
-              alt={conn.character.name}
-            />
+            >
+              <img
+                className={styles.img}
+                src={`./assets/img/characters/${conn.character.name
+                  .replace(/\s+/g, ``)
+                  .toLowerCase()}.png`}
+                alt={conn.character.name}
+              />
+            </div>
           </Link>
         </li>
       ))}
