@@ -448,7 +448,7 @@ const CharacterDetails = ({
                 connection.setCharacterId(character.id);
                 connection.setCharactersSet(true);
                 updateConnection(connection);
-                history.push(`/characters/${character.id}`);
+                history.push(`/characters/show/${character.id}`);
               }}
             >
               <p className={styles.changeText}>
