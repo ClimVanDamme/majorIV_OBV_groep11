@@ -1,0 +1,39 @@
+.button {
+    composes: button from "../styles/uiControls.module.css";
+    width: 19rem;
+    margin: 5rem 0rem;
+    justify-self: center;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.textarea {
+    margin: 2rem 0rem;
+    width: 100%;
+    max-width: 77rem;
+    height: 15rem;
+    border: .2rem var(--dark-purple-color) solid;
+    border-radius: .7rem;
+    outline: none;
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--dark-gray-color);
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.submit {
+    composes: button from "../styles/uiControls.module.css";
+    width: 19rem;
+    justify-self: center;
+}
+
+.succesMessage {
+    font-size: 2rem;
+    color: var(--dark-purple-color);
+    margin: 4rem 0rem;
+    font-weight: 700;
+    text-align: center;
+}

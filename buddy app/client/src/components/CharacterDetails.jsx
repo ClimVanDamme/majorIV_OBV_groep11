@@ -41,7 +41,7 @@ const CharacterDetails = ({
           </g>
         </svg>
       </button>
-      <h1>{character.name}</h1>
+      <h1 className={styles.hide}>{character.name}</h1>
       <section>
         <div className={styles.imgGrid}>
           <img
@@ -78,27 +78,50 @@ const CharacterDetails = ({
         </section>
 
         <section className={styles.chat}>
-          <h2>Chatten met je personage?</h2>
-          <button
-            onClick={() => {
-              const show = showStore.findById(connection.showId);
-              const character = getRandomCharacter(show.characters);
-              connection.setShowId(connection.showId);
-              connection.setCharacterId(character.id);
-              connection.setCharactersSet(true);
-              updateConnection(connection);
-              history.push(`/characters/${character.id}`);
-            }}
-          >
-            Niet tevreden? Verander hier je personage
-          </button>
+          <h2 className={styles.subtitle}>Chatten met je personage?</h2>
+          <div className={styles.buttonWrapper}>
+            <button
+              className={styles.noButton}
+              onClick={() => {
+                history.push(`/shows/${character.showId}`);
+              }}
+            >
+              Nee
+            </button>
+            <button
+              className={styles.yesButton}
+              onClick={() => {
+                history.push(`/chats`);
+              }}
+            >
+              Ja
+            </button>
+          </div>
         </section>
 
+        <button
+          className={styles.changeButton}
+          onClick={() => {
+            const show = showStore.findById(connection.showId);
+            const character = getRandomCharacter(show.characters);
+            connection.setShowId(connection.showId);
+            connection.setCharacterId(character.id);
+            connection.setCharactersSet(true);
+            updateConnection(connection);
+            history.push(`/characters/${character.id}`);
+          }}
+        >
+          <p className={styles.changeText}>
+            Niet tevreden? <br />
+            Verander hier je personage
+          </p>
+        </button>
+
         <section className={styles.shareStory}>
-          <h2>We want to know</h2>
-          <p>
+          <h2 className={styles.subtitle}>We want to know</h2>
+          <p className={styles.paragraph}>
             Had je een klik met je personage? Vertel ons hoe je jezelf erin
-            herkent. Wij vragen 5 minuten van je tijd.
+            herkent.
           </p>
           <Story addStory={addStory} connection={connection} />
         </section>

@@ -22,6 +22,10 @@
     justify-self: center;
 }
 
+.hide {
+    composes: visually-hidden from "../styles/index.css";
+}
+
 .rect{
     grid-column: 1/4;
     grid-row: 2/4;
@@ -64,24 +68,38 @@
     font-size: 1.8rem;
     color: var(--dark-gray-color);
     font-weight: 200;
+    line-height: 1.7;
 }
 
 .contentGrid {
     display: grid;
     grid-template-columns: 2.4rem 1fr 2.4rem;
+    grid-template-rows: auto auto auto auto auto;
     justify-items: center;
 
     grid-template-areas: 
     ". personality ."
     ". story ."
     ". chat ."
+    ". change ."
     ". shareStory ."
+}
+
+.changeButton{
+    grid-area: change;
+    justify-self: center;
+    max-width: 48rem;
+    margin: 5rem 0rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .personality {
     margin-top: 5rem;
     grid-area: personality;
     max-width: 48rem;
+    width: 100%;
 }
 
 .story {
@@ -91,13 +109,38 @@
 }
 
 .chat {
+    margin-top: 5rem;
     grid-area: chat;
     justify-self: center;
-    margin: 5rem 0rem;
+    margin-top: 5rem 0rem;
     max-width: 48rem;
 }
-
 .shareStory {
     grid-area: shareStory;
     max-width: 48rem;
+    margin-bottom: 8rem;
+}
+
+.noButton {
+    composes: button_alt from "../styles/uiControls.module.css";
+    box-shadow: 0 .2rem .5rem 0 #EAEAEA;
+    width: 12rem;
+}
+
+.yesButton {
+    composes: button from "../styles/uiControls.module.css";
+    width: 12rem;
+}
+
+.buttonWrapper {
+    display: flex;
+    width: 26rem;
+    justify-content: space-between;
+  }
+
+.changeText {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: var(--dark-purple-color);
+    font-weight: 200;
 }

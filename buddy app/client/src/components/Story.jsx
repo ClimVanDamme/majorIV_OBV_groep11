@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react";
+import styles from "./Story.module.css";
 
 class Story extends Component {
   constructor(props) {
@@ -28,24 +29,32 @@ class Story extends Component {
     if (succesMessage === false) {
       return edit ? (
         <form onSubmit={handleSubmit}>
-          <input
-            type="textarea"
+          <textarea
+            className={styles.textarea}
             ref={textInput}
-            rows="4"
-            cols="50"
+            cols="10"
             name="story"
             id="story"
             defaultValue=""
           />
-          <input type="submit" value="klaar" />
+          <div className={styles.buttonWrapper}>
+            <input className={styles.submit} type="submit" value="klaar" />
+          </div>
         </form>
       ) : (
-        <div>
-          <button onClick={() => this.setEditMode(true)}>Vertel het ons</button>
+        <div className={styles.buttonWrapper}>
+          <button
+            className={styles.button}
+            onClick={() => this.setEditMode(true)}
+          >
+            Vertel het ons
+          </button>
         </div>
       );
     } else {
-      return <p>Bedankt om je verhaal te delen!</p>;
+      return (
+        <p className={styles.succesMessage}>Bedankt om je verhaal te delen!</p>
+      );
     }
   }
 }
