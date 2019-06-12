@@ -28,6 +28,7 @@
     font-weight: 700;
     grid-row: 1;
     grid-column: 2;
+    padding-top: .5rem;
 }
 
 .info{
@@ -78,6 +79,7 @@
 
 .editButton{
     width: 5rem;
+    margin-top: -3rem;
 }
 
 .edit{
@@ -85,3 +87,5 @@
     width: 100%;
     justify-content: flex-end;
 }
+
+.st0{fill:none;stroke:#594157;stroke-width:1.6;stroke-miterlimit:10;}
