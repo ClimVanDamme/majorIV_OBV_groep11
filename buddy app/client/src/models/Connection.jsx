@@ -54,7 +54,8 @@ decorate(Connection, {
   setCharacterId: action,
   // setChatId: action,
   setShowId: action,
-  values: computed
+  values: computed,
+  character: computed
 });
 
 export default Connection;

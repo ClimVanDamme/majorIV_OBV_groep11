@@ -30,7 +30,6 @@ class Chat {
   }
 
   get connection() {
-    console.log(this.showId);
     return this.store.connectionStore.getByShowId(this.showId);
   }
 }
