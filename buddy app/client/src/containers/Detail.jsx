@@ -22,6 +22,7 @@ const Detail = ({
 
   const getRandomCharacter = characterStore.getRandomCharacter;
   const addConnection = connectionStore.addConnection;
+  const addChat = chatStore.addChat;
   // const getConnection = connectionStore.getByShowId;
 
   return (
@@ -32,6 +33,7 @@ const Detail = ({
           getRandomCharacter={getRandomCharacter}
           addConnection={addConnection}
           connection={connection}
+          addChat={addChat}
         />
       </section>
       <TabBar />

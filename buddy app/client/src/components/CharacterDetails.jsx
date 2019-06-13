@@ -13,6 +13,7 @@ const CharacterDetails = ({
   connectionStore,
   characterStore,
   showStore,
+  chatStore,
   history,
   comingFrom
 }) => {
@@ -358,6 +359,11 @@ const CharacterDetails = ({
                     d="M25,15.4c0,0-1.9,1.7-2.7-0.9"
                   />
                   <path
+                    className={styles.st1_2}
+                    d="M21.6,7.6l13.1,4.6c1.1,0.4,1.8,1.5,1.6,2.7c-0.7,3.7-2.7,11.5-8.8,15c-4.7,2.7-10.5-0.3-11.4-5.6
+	c-0.7-4.5,0-10.4,2.7-15.6C19.3,7.6,20.5,7.2,21.6,7.6z"
+                  />
+                  <path
                     className={styles.st2_2}
                     d="M3.1,3.7L17.6,1c1.2-0.2,2.4,0.5,2.8,1.6c1.3,3.8,3.6,12-0.2,18.5c-2.9,5-9.9,5.3-13.5,0.8
 	C3.6,18.2,1.2,12.4,1,6.2C1,5,1.9,4,3.1,3.7z"
@@ -435,6 +441,10 @@ const CharacterDetails = ({
                 <button
                   className={styles.yesButton}
                   onClick={() => {
+                    chatStore.addChat({
+                      show_id: character.showId,
+                      name: character.show.title
+                    });
                     history.push(`/chats`);
                   }}
                 >
@@ -474,5 +484,6 @@ export default inject(
   `storyStore`,
   `connectionStore`,
   `characterStore`,
-  `showStore`
+  `showStore`,
+  `chatStore`
 )(withRouter(observer(CharacterDetails)));

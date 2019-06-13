@@ -9,15 +9,21 @@ class Chat {
 
   setId = value => (this.id = value);
   setShowId = value => (this.showId = value);
+  setUrl = value => (this.url = value);
+  setName = value => (this.name = value);
 
   setValues = values => {
     this.setId(values._id);
     this.setShowId(values.show_id);
+    this.setUrl(values.url);
+    this.setName(values.name);
   };
 
   get values() {
     return {
-      showId: this.showId
+      showId: this.showId,
+      url: this.url,
+      name: this.name
     };
   }
 
@@ -37,8 +43,12 @@ class Chat {
 decorate(Chat, {
   id: observable,
   showId: observable,
+  url: observable,
+  name: observable,
   setId: action,
   setShowId: action,
+  setUrl: action,
+  setName: action,
   values: computed,
   show: computed,
   messages: computed,

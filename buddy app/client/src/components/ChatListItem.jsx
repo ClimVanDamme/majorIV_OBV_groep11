@@ -11,10 +11,8 @@ const ChatListItem = ({ chat }) => {
     return <p>loading</p>;
   }
 
-  console.log(chat.connection.character);
-
   return (
-    <a className={styles.item} href={`https://discord.gg/uzxh6fm`}>
+    <a className={styles.item} href={chat.url}>
       <img
         className={styles.img}
         src={`${

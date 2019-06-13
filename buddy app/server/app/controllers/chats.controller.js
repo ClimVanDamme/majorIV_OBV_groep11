@@ -1,13 +1,19 @@
 const Chat = require("../models/chat.model.js");
 
 exports.create = (req, res) => {
-  if (!req.body.show_id) {
+  if (!req.body.showId) {
     return res.status(500).send({ err: "show_id can not be empty" });
   }
 
+  if (!req.body.url) {
+    return res.status(500).send({ err: "url can not be empty" });
+  }
+
   const chat = new Chat({
-    show_id: req.body.show_id,
-    user_id: req.authUserId
+    show_id: req.body.showId,
+    user_id: req.authUserId,
+    url: req.body.url,
+    name: req.body.name
   });
 
   chat
@@ -51,8 +57,12 @@ exports.update = async (req, res) => {
   //     return res.status(400).send("title mag niet leeg zijn");
   //   }
 
-  if (!req.body.show_id) {
+  if (!req.body.showId) {
     return res.status(400).send("show_id can not be empty");
+  }
+
+  if (!req.body.url) {
+    return res.status(400).send("url can not be empty");
   }
 
   try {
@@ -62,7 +72,8 @@ exports.update = async (req, res) => {
         user_id: req.authUserId
       },
       {
-        show_id: req.body.show_id
+        show_id: req.body.show_id,
+        url: req.body.url
       },
       {
         new: true

@@ -13,6 +13,7 @@ const ShowDetails = ({
   getRandomCharacter,
   addConnection,
   connection,
+  addChat,
   history
 }) => {
   const [ownCharacter, setOwnCharacter] = useState({});
@@ -21,8 +22,6 @@ const ShowDetails = ({
   const showImage = `${
     process.env.PUBLIC_URL
   }/assets/img/shows/${show.title.replace(/\s+/g, ``).toLowerCase()}.jpg`;
-
-  console.log(connection);
 
   useEffect(() => {
     const character = ownCharacter;
@@ -93,6 +92,7 @@ const ShowDetails = ({
           />
           <div className={styles.buttonWrapper}>
             <Link
+              onClick={() => addChat({ show_id: show.id, name: show.title })}
               className={`${styles.button} ${styles.button_prim}`}
               to={ROUTES.chat}
             >

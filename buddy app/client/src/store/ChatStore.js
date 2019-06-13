@@ -14,6 +14,10 @@ configure({ enforceActions: `observed` });
 class ChatStore {
   _chats = [];
   _filter = null;
+  urls = {
+    Macbeth: `https://discord.gg/dvwrYDb`,
+    "Bach Studies": `https://discord.gg/DPDT3Np`
+  };
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -43,7 +47,27 @@ class ChatStore {
   _addChat = values => {
     const chat = new Chat(this.rootStore);
     chat.setValues(values);
-    runInAction(() => this.chats.push(chat));
+    const duplicateChat = this.chats.find(chat => chat.id === values._id);
+    if (!duplicateChat) {
+      runInAction(() => this.chats.push(chat));
+    }
+  };
+
+  addChat = values => {
+    const newChat = new Chat(this.rootStore);
+    newChat.setValues(values);
+    newChat.setUrl(this.urls[values.name]);
+
+    const duplicateChat = this.chats.find(
+      chat => chat.showId === values.show_id
+    );
+
+    if (!duplicateChat) {
+      this.chats.push(newChat);
+      this.api
+        .create(newChat)
+        .then(chatValues => newChat.setValues(chatValues));
+    }
   };
 
   setFilter = filter => {

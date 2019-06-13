@@ -27,6 +27,8 @@ class Api {
   };
 
   create = async entity => {
+    console.log(entity.values);
+
     const r = await fetch(
       `/api/${this.entity}`,
       this.getOptions(`post`, entity.values)
