@@ -26,7 +26,7 @@ const ChatList = ({ chatStore }) => {
           </div>
           <img
             className={styles.img}
-            src="%PUBLIC_URL%/assets/img/legechat.png"
+            src={`${process.env.PUBLIC_URL}/assets/img/legechat.png`}
             alt="Personage met vraagteken en bekertjes"
           />
           <div className={styles.emptyMessage}>
