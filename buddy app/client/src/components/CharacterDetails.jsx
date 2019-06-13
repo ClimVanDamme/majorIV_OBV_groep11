@@ -58,7 +58,9 @@ const CharacterDetails = ({
             <div className={styles.imgGrid}>
               <img
                 className={styles.charImg}
-                src={`%PUBLIC_URL%/assets/img/characters/${character.name
+                src={`${
+                  process.env.PUBLIC_URL
+                }/assets/img/characters/${character.name
                   .replace(/\s+/g, ``)
                   .toLowerCase()}.png`}
                 alt={`${character.name}`}

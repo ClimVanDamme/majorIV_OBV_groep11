@@ -9,8 +9,10 @@ const ChatListItem = ({ chat }) => {
     return <p>loading</p>;
   }
 
+  console.log(chat.connection.character);
+
   return (
-    <div className={styles.item}>
+    <a className={styles.item} href={`https://discord.gg/uzxh6fm`}>
       <img
         className={styles.img}
         src={`${
@@ -20,8 +22,19 @@ const ChatListItem = ({ chat }) => {
           .toLowerCase()}simpel.png`}
         alt={chat.connection.character.name}
       />
-      <a href={`https://discord.gg/uzxh6fm`}>{chat.show.title}</a>
-    </div>
+      <div
+        className={`${styles.circle} ${
+          styles[chat.connection.show.title.replace(/\s+/g, ``).toLowerCase()]
+        }`}
+      />
+      <div className={styles.message}>
+        <p className={styles.charName}> {chat.connection.character.name}</p>
+        <p className={styles.messageText}>
+          {chat.connection.character.name}: ik...
+        </p>
+      </div>
+      <p className={styles.time}>17:29</p>
+    </a>
   );
 };
 

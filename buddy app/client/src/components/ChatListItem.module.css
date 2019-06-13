@@ -1,3 +1,63 @@
 .item {
-    
+    display: grid;
+    grid-template-columns: 5.5rem 1fr 3rem;
+    border-bottom: .1rem var(--dark-purple-color) solid;
+    margin-top: 1.5rem;
+}
+
+.img {
+    grid-column: 1;
+    grid-row: 1;
+    height: auto;
+    width: 5.5rem;
+}
+
+.circle {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: -1;
+    justify-self: center;
+    align-self: center;
+}
+
+.macbeth {
+    background-color: var(--pink-color);
+}
+
+.bachstudies{
+    background-color:var(--orange-color);
+}
+
+.time {
+    justify-self: center;
+    align-self: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-gray-color);
+
+}
+
+.message {
+    padding-left: 1rem;
+    align-self: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+
+}
+
+.charName {
+    font-weight: 700;
+    color: var(--dark-purple-color);
+    font-size: 1.6rem;
+    margin-bottom: .5rem;
+}
+
+.messageText {
+    font-weight: 300;
+    color: var(--dark-gray-color);
+    font-size: 1.6rem;
+    max-width: 20rem;
 }

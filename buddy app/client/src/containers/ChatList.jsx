@@ -10,7 +10,8 @@ import styles from "./ChatList.module.css";
 
 const ChatList = ({ chatStore }) => {
   const { chats } = chatStore;
-  console.log(chats.length);
+  console.log(chats);
+  console.log(`chatlist`);
 
   if (chats.length <= 0) {
     return (
@@ -20,7 +21,14 @@ const ChatList = ({ chatStore }) => {
           <div className={styles.profile}>
             <ProfileButton />
           </div>
-          <div className={styles.img} />
+          <div className={styles.filter}>
+            <input type="text" name="filter" id="filter" />
+          </div>
+          <img
+            className={styles.img}
+            src="%PUBLIC_URL%/assets/img/legechat.png"
+            alt="Personage met vraagteken en bekertjes"
+          />
           <div className={styles.emptyMessage}>
             <p>
               Bekijk de voorstellingen en ontdek je personage om een chat te
