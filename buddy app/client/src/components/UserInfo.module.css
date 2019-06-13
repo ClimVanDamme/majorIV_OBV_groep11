@@ -135,3 +135,7 @@
 .buttonWrapper{
     margin: 0 1.3rem;
 }
+
+.logoutButton {
+    margin: 0 auto;
+}

@@ -55,6 +55,7 @@
     font-size: 1.5rem;
     color: var(--dark-purple-color);
     font-weight: 700;
+    margin: 0 auto;
 }
 
 .traits li {
@@ -121,6 +122,7 @@
     margin-top: 5rem;
     grid-area: story;
     max-width: 48rem;
+    width: 100%;
 }
 
 .chat {

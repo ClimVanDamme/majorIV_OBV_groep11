@@ -207,7 +207,10 @@ const UserInfo = ({ user, noOfChar, logout }) => {
         </div>
       </form>
       <div className={styles.buttonWrapper}>
-        <button className={styles.button} onClick={logout}>
+        <button
+          className={`${styles.button} ${styles.logoutButton}`}
+          onClick={logout}
+        >
           uitloggen
         </button>
       </div>
