@@ -1,4 +1,11 @@
-import { decorate, observable, configure, runInAction, action } from "mobx";
+import {
+  decorate,
+  observable,
+  configure,
+  runInAction,
+  action,
+  observe
+} from "mobx";
 import Chat from "../models/Chat";
 import Api from "../api";
 
@@ -9,7 +16,16 @@ class ChatStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.api = new Api(`chats`);
-    this.getAll();
+    if (this.rootStore.uiStore.authUser) {
+      this.getAll();
+    }
+    observe(this.rootStore.uiStore, `authUser`, change => {
+      if (change.newValue) {
+        this.getAll();
+      } else {
+        runInAction(() => (this.connections = []));
+      }
+    });
   }
 
   //SHOWS

@@ -6,7 +6,8 @@ exports.create = (req, res) => {
   }
 
   const chat = new Chat({
-    show_id: req.body.show_id
+    show_id: req.body.show_id,
+    user_id: req.authUserId
   });
 
   chat
@@ -19,7 +20,7 @@ exports.create = (req, res) => {
 
 exports.findAll = async (req, res) => {
   try {
-    const chats = await Chat.find();
+    const chats = await Chat.find({ user_id: req.authUserId });
     res.send(chats);
   } catch (err) {
     res.status(500).send({ err: err.chat || "Error" });

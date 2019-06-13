@@ -1,4 +1,4 @@
-import { decorate, observable, configure, runInAction } from "mobx";
+import { decorate, observable, configure, runInAction, observe } from "mobx";
 import Message from "../models/Message";
 import Api from "../api";
 
@@ -9,7 +9,16 @@ class MessageStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.api = new Api(`messages`);
-    this.getAll();
+    if (this.rootStore.uiStore.authUser) {
+      this.getAll();
+    }
+    observe(this.rootStore.uiStore, `authUser`, change => {
+      if (change.newValue) {
+        this.getAll();
+      } else {
+        runInAction(() => (this.connections = []));
+      }
+    });
   }
 
   //SHOWS

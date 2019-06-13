@@ -4,7 +4,8 @@ import {
   configure,
   runInAction,
   computed,
-  action
+  action,
+  observe
 } from "mobx";
 import Show from "../models/Show";
 import Api from "../api";
@@ -17,7 +18,16 @@ class ShowStore {
   constructor(rootStore) {
     this.rootStore = rootStore;
     this.api = new Api(`shows`);
-    this.getAll();
+    if (this.rootStore.uiStore.authUser) {
+      this.getAll();
+    }
+    observe(this.rootStore.uiStore, `authUser`, change => {
+      if (change.newValue) {
+        this.getAll();
+      } else {
+        runInAction(() => (this.connections = []));
+      }
+    });
   }
 
   //SHOWS
