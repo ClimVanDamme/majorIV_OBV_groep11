@@ -1,0 +1,26 @@
+.hide{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.filterList {
+  display: flex;
+  margin-bottom: 2.5rem;
+  margin-top: .5rem;
+}
+
+.filterItem {
+  display: block;
+  font-size: var(--font-base);
+  color: var(--dark-purple-color);
+  font-weight: 400;
+  padding-right: 2rem;
+}
+
+.active+label{
+  font-weight: bold;
+}

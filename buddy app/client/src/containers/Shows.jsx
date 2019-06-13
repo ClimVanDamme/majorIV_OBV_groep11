@@ -21,6 +21,7 @@ const Shows = ({ showStore }) => {
           <Filter
             categories={showStore.categories}
             setFilter={showStore.setFilter}
+            filter={showStore._filter}
           />
         </div>
         <div className={styles.shows}>

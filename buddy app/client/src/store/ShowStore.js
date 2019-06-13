@@ -46,7 +46,7 @@ class ShowStore {
   resolveShow = showId => this._shows.find(show => show.id === showId);
 
   get categories() {
-    const categories = [];
+    const categories = [`Alles`];
     this._shows.forEach(show => {
       if (!categories.includes(show.category)) {
         categories.push(show.category);
@@ -60,10 +60,15 @@ class ShowStore {
     this._filter = filter;
   };
 
+  categoryFilter = value => {
+    if (this._filter === `Alles`) {
+      return this._shows;
+    }
+    return value.category === this._filter;
+  };
+
   get shows() {
-    return this._filter
-      ? this._shows.filter(check => check.category === this._filter)
-      : this._shows;
+    return this._filter ? this._shows.filter(this.categoryFilter) : this._shows;
   }
 }
 
