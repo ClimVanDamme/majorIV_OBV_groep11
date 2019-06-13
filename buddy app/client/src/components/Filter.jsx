@@ -4,8 +4,6 @@ import stylesLayout from "../styles/layout.module.css";
 import styles from "./Filter.module.css";
 
 const Filter = ({ categories, setFilter, filter }) => {
-  console.log(filter);
-
   return (
     <section className={stylesLayout.contentPadded}>
       <div className={stylesForm.form_select}>

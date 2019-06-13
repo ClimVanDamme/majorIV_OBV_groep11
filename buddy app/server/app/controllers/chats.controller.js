@@ -30,8 +30,8 @@ exports.findAll = async (req, res) => {
 exports.findOne = async (req, res) => {
   try {
     const chat = await Chat.findOne({
-      _id: req.params.chatId
-      // user_id: req.authUserId
+      _id: req.params.chatId,
+      user_id: req.authUserId
     });
     if (chat) {
       res.send(chat);
@@ -58,8 +58,8 @@ exports.update = async (req, res) => {
   try {
     const chat = await chat.findOneAndUpdate(
       {
-        _id: req.params.chatId
-        // user_id: req.authUserId
+        _id: req.params.chatId,
+        user_id: req.authUserId
       },
       {
         show_id: req.body.show_id
@@ -84,8 +84,8 @@ exports.update = async (req, res) => {
 exports.delete = async (req, res) => {
   try {
     const chat = await Chat.findOneAndRemove({
-      _id: req.params.chatId
-      // user_id: req.authUserId
+      _id: req.params.chatId,
+      user_id: req.authUserId
     });
     if (!chat) {
       return res.status(404).send("No chat found");
