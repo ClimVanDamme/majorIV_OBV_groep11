@@ -1,0 +1,59 @@
+.title{
+    composes: titleTab from "../styles/typo.module.css";
+    grid-area: title;
+}
+
+.profile {
+    grid-area: profile;
+}
+
+.emptyMessage {
+    font-size: 1.7rem;
+    color: #656565;
+    font-weight: 300;
+    text-align: center;
+    align-self: flex-end;
+    margin-bottom: 2rem;
+    grid-area: emptyMessage;
+}
+
+.img{
+    grid-area: img;
+    width: 100%;
+    height: 20rem;
+    background-color: var(--pink-color);
+}
+
+.container {
+    display: grid;
+      grid-template-columns: 1.6rem 1fr 1.6rem;
+      grid-template-rows: repeat(3, auto) 20rem;
+  
+      grid-template-areas:
+      ' . profile . '
+      ' . title . '
+      ' . img . '
+      ' . emptyMessage . '
+      ' . chatList . ';
+}
+
+.chatList{
+    grid-area: chatList;
+    grid-row: 3;
+}
+
+.container {
+    margin: 2rem auto 0 auto;
+    width: 100%;
+}
+
+.button_prim {
+    composes: button from "../styles/uiControls.module.css";
+    margin-bottom: 1.5rem;
+}
+  
+.button {
+    width: 27.2rem;
+    margin: 2rem auto 4rem auto;
+    padding: 1rem 2rem;
+}

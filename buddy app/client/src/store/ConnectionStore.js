@@ -58,6 +58,7 @@ class ConnectionStore {
   };
 
   getByShowId = showId => {
+    console.log(showId, this.connections);
     return this.connections.find(check => check.showId === showId);
   };
 
@@ -68,8 +69,7 @@ class ConnectionStore {
 
 decorate(ConnectionStore, {
   connections: observable,
-  addConnection: action,
-  getByShowId: action
+  addConnection: action
 });
 
 export default ConnectionStore;

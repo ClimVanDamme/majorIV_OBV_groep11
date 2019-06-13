@@ -28,6 +28,11 @@ class Chat {
   get messages() {
     return this.store.messageStore.resolveMessages(this.id);
   }
+
+  get connection() {
+    console.log(this.showId);
+    return this.store.connectionStore.getByShowId(this.showId);
+  }
 }
 
 decorate(Chat, {
@@ -37,7 +42,8 @@ decorate(Chat, {
   setShowId: action,
   values: computed,
   show: computed,
-  messages: computed
+  messages: computed,
+  connection: computed
 });
 
 export default Chat;
