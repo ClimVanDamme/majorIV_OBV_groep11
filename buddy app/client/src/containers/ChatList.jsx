@@ -21,9 +21,17 @@ const ChatList = ({ chatStore }) => {
           <div className={styles.profile}>
             <ProfileButton />
           </div>
-          <div className={styles.filter}>
-            <input type="text" name="filter" id="filter" />
-          </div>
+          {/* <div className={styles.filter}>
+            <input
+              className={styles.filterInput}
+              placeholder="bv. koning alexander"
+              type="text"
+              name="filter"
+              id="filter"
+              value={chatStore._filter ? chatStore._filter : ``}
+              onChange={e => chatStore.setFilter(e.target.value)}
+            />
+          </div> */}
           <img
             className={styles.img}
             src={`${process.env.PUBLIC_URL}/assets/img/legechat.png`}
@@ -54,6 +62,17 @@ const ChatList = ({ chatStore }) => {
         <div className={styles.profile}>
           <ProfileButton />
         </div>
+        {/* <div className={styles.filter}>
+          <input
+            className={styles.filterInput}
+            placeholder="bv. koning alexander"
+            type="text"
+            name="filter"
+            id="filter"
+            value={chatStore._filter ? chatStore._filter : ``}
+            onChange={e => chatStore.setFilter(e.target.value)}
+          />
+        </div> */}
         <div className={styles.chatList}>
           {chats.map(chat => (
             <ChatListItem key={chat.showId} chat={chat} />

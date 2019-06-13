@@ -5,7 +5,9 @@ import { observer } from "mobx-react";
 import { PropTypes } from "prop-types";
 
 const ChatListItem = ({ chat }) => {
-  if (!chat.connection) {
+  console.log(chat, `dit is de chat in chatlist`);
+
+  if (chat && !chat.connection) {
     return <p>loading</p>;
   }
 

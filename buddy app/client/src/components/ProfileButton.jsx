@@ -7,7 +7,11 @@ const ProfileButton = () => {
   return (
     <div className={styles.wrapper}>
       <Link to={ROUTES.profile} className={styles.button}>
-        Profile
+        <img
+          className={styles.icon}
+          src={`${process.env.PUBLIC_URL}/assets/img/profileIcon.png`}
+          alt="Profiel icon"
+        />
       </Link>
     </div>
   );

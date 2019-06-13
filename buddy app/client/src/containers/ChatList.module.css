@@ -17,21 +17,40 @@
     grid-area: emptyMessage;
 }
 
+.filter {
+    grid-area: filter;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.filterInput {
+    width: 100%;
+    height: 3rem;
+    outline: none;
+    border: .1rem var(--dark-purple-color) solid;
+    padding-left: 1rem;
+    border-radius: .4rem;
+    font-size: 1.4rem;
+    color: var(--medium-gray-color);
+}
+
 .img{
     grid-area: img;
-    width: 100%;
-    height: 20rem;
-    background-color: var(--pink-color);
+    width: 18rem;
+    height: auto;
+    align-self: center;
+    justify-self: center;
 }
 
 .container {
     display: grid;
       grid-template-columns: 1.6rem 1fr 1.6rem;
-      grid-template-rows: repeat(3, auto) 20rem;
+      grid-template-rows: repeat(4, auto) 20rem;
   
       grid-template-areas:
       ' . profile . '
       ' . title . '
+      ' . filter . '
       ' . img . '
       ' . emptyMessage . '
       ' . chatList . ';
@@ -39,7 +58,7 @@
 
 .chatList{
     grid-area: chatList;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 .container {

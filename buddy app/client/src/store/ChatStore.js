@@ -4,14 +4,16 @@ import {
   configure,
   runInAction,
   action,
-  observe
+  observe,
+  computed
 } from "mobx";
 import Chat from "../models/Chat";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 class ChatStore {
-  chats = [];
+  _chats = [];
+  _filter = null;
 
   constructor(rootStore) {
     this.rootStore = rootStore;
@@ -43,11 +45,28 @@ class ChatStore {
     chat.setValues(values);
     runInAction(() => this.chats.push(chat));
   };
+
+  setFilter = filter => {
+    console.log(this._filter);
+
+    this._filter = filter;
+  };
+
+  nameFilter = value => {
+    return value.character.name === this._filter;
+  };
+
+  get chats() {
+    return this._filter ? this._chats.filter(this.nameFilter) : this._chats;
+  }
 }
 
 decorate(ChatStore, {
-  chats: observable,
-  addChat: action
+  _chats: observable,
+  _filter: observable,
+  addChat: action,
+  setFilter: action,
+  chats: computed
 });
 
 export default ChatStore;
