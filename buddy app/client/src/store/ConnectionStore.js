@@ -46,7 +46,10 @@ class ConnectionStore {
   _addConnection = values => {
     const connection = new Connection(this.rootStore);
     connection.setValues(values);
-    runInAction(() => this.connections.push(connection));
+    const duplicateConn = this.connections.find(conn => conn.id === values._id);
+    if (!duplicateConn) {
+      runInAction(() => this.connections.push(connection));
+    }
   };
 
   updateConnection = connection => {
@@ -57,9 +60,18 @@ class ConnectionStore {
     return this.connections.find(check => check.id === id);
   };
 
-  getByShowId = showId => {
-    console.log(showId, this.connections);
-    return this.connections.find(check => check.showId === showId);
+  // getByShowId = showId => {
+  //   return this.connections.find(check => check.showId === showId);
+  // };
+
+  getByShowId = id => {
+    const connection = this.connections.find(
+      connection => connection.showId === id
+    );
+    // if (!connection) {
+    //   this.api.getByShowId(id).then(this._addconnection);
+    // }
+    return connection;
   };
 
   getByCharId = charId => {

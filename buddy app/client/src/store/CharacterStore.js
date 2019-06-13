@@ -15,6 +15,7 @@ class CharacterStore {
   //SHOWS
 
   getAll = () => {
+    console.log(`get all`);
     this.api.getAll().then(d => d.forEach(this._addCharacter));
   };
 
@@ -39,11 +40,16 @@ class CharacterStore {
   _addCharacter = values => {
     const character = new Character(this.rootStore);
     character.setValues(values);
-    runInAction(() => this.characters.push(character));
+    const duplicateChar = this.characters.find(char => char.id === values._id);
+    if (!duplicateChar) {
+      runInAction(() => this.characters.push(character));
+    }
+    // console.log(this.characters);
   };
 
-  resolveCharacters = showId =>
-    this.characters.filter(character => character.showId === showId);
+  resolveCharacters = showId => {
+    return this.characters.filter(character => character.showId === showId);
+  };
 
   resolveCharacter = characterId =>
     this.characters.find(char => char.id === characterId);

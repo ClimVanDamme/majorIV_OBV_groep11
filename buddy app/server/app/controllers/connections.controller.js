@@ -62,6 +62,25 @@ exports.findOne = async (req, res) => {
   }
 };
 
+exports.findOneByShowId = async (req, res) => {
+  try {
+    const connection = await Connection.findOne({
+      show_id: req.params.showId,
+      user_id: req.authUserId
+    });
+    if (connection) {
+      res.send(connection);
+    } else {
+      res.status(404).send("No connection found");
+    }
+  } catch (err) {
+    if (err.kind === "ObjectId") {
+      return res.status(500).send("Geen geldig ID");
+    }
+    return res.status(500).send(err);
+  }
+};
+
 exports.update = async (req, res) => {
   //   if (!req.body.title) {
   //     return res.status(400).send("title mag niet leeg zijn");

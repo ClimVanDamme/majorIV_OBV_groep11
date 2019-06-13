@@ -11,6 +11,16 @@ class Api {
     return Promise.reject();
   };
 
+  getByShowId = async id => {
+    console.log(`/api/${this.entity}/show/${id}`, `get by show id`);
+
+    const r = await fetch(`/api/${this.entity}/show/${id}`);
+    if (r.status === 200) {
+      return r.json();
+    }
+    return Promise.reject();
+  };
+
   getAll = async () => {
     const r = await fetch(`/api/${this.entity}`);
     return await r.json();

@@ -12,15 +12,17 @@ const ShowDetails = ({
   show,
   getRandomCharacter,
   addConnection,
-  getConnection,
+  connection,
   history
 }) => {
   const [ownCharacter, setOwnCharacter] = useState({});
-  const connection = getConnection(show.id);
+  // const connection = getConnection(show.id);
   const colorClass = show.title.replace(/\s+/g, `-`).toLowerCase();
-  const showImage = `./../assets/img/shows/${show.title
-    .replace(/\s+/g, ``)
-    .toLowerCase()}.jpg`;
+  const showImage = `${
+    process.env.PUBLIC_URL
+  }/assets/img/shows/${show.title.replace(/\s+/g, ``).toLowerCase()}.jpg`;
+
+  console.log(connection);
 
   useEffect(() => {
     const character = ownCharacter;
@@ -82,7 +84,9 @@ const ShowDetails = ({
           <img
             className={styles.myCharacter}
             width="320"
-            src={`/assets/img/characters/${connection.character.name
+            src={`${
+              process.env.PUBLIC_URL
+            }/assets/img/characters/${connection.character.name
               .replace(/\s+/g, ``)
               .toLowerCase()}.png`}
             alt={connection.character.name}
@@ -107,7 +111,9 @@ const ShowDetails = ({
                 className={styles.characterImg}
                 width="146"
                 height="153"
-                src={`./../assets/img/characters/${character.name
+                src={`${
+                  process.env.PUBLIC_URL
+                }/assets/img/characters/${character.name
                   .replace(/\s+/g, ``)
                   .toLowerCase()}simpel.png`}
                 alt={character.name}
@@ -176,7 +182,9 @@ const ShowDetails = ({
                 className={styles.characterImg}
                 width="146"
                 height="153"
-                src={`./../assets/img/characters/${character.name
+                src={`${
+                  process.env.PUBLIC_URL
+                }/assets/img/characters/${character.name
                   .replace(/\s+/g, ``)
                   .toLowerCase()}simpel.png`}
                 alt={character.name}

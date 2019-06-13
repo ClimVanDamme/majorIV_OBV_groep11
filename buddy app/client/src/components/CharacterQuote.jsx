@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 import styles from "./CharacterQuote.module.css";
 
 const CharacterQuote = ({ character }) => {
-  const image = `./../assets/img/characters/${character.name
+  const image = `%PUBLIC_URL%/assets/img/characters/${character.name
     .replace(/\s+/g, ``)
     .toLowerCase()}simpel.png`;
   return (
