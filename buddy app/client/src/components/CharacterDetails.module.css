@@ -43,7 +43,7 @@
     background-color: var(--pink-color);
 }
 
-.bachstudies{
+.rasa{
     background-color:var(--orange-color);
 }
 
@@ -129,7 +129,6 @@
     margin-top: 5rem;
     grid-area: chat;
     justify-self: center;
-    margin-top: 5rem 0rem;
     max-width: 48rem;
 }
 .shareStory {

@@ -16,7 +16,7 @@ class ChatStore {
   _filter = null;
   urls = {
     Macbeth: `https://discord.gg/dvwrYDb`,
-    "Bach Studies": `https://discord.gg/DPDT3Np`
+    Rasa: `https://discord.gg/DPDT3Np`
   };
 
   constructor(rootStore) {

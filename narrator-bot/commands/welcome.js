@@ -38,14 +38,13 @@ module.exports = member => {
       `💀 Macbeth `,
       `"Zoek geen ruzie met mij, want er is een kans dat ik je vermoord."`
     )
-    .addField(
-      `👸 Lady MacbethMacbeth`,
-      `"Mijn man heeft mij de dood ingeleid."`
-    )
+    .addField(`👸 Lady Macbeth`, `"Mijn man heeft mij de dood ingeleid."`)
     .addField(
       `👑 Koning Duncan`,
       `"Ik ben een vaderfiguur, maar wel wat naïef."`
     )
+    .addField(`🗡 Macduff`, `"Voor mijn gezin moet je door mij."`)
+    .addField(`👻 Banquo`, `"Van mij raak je nog niet zo makkelijk af."`)
     .setColor(`#C4DDE9`);
   // send
   if (member.guild.channels.find(c => c.name === `podium`)) {
@@ -56,6 +55,8 @@ module.exports = member => {
         await sentEmbed.react("💀");
         await sentEmbed.react("👸");
         await sentEmbed.react("👑");
+        await sentEmbed.react("🗡");
+        await sentEmbed.react("👻");
       });
   } else if (member.guild.channels.find(c => c.name === `general`)) {
     member.guild.channels
@@ -65,6 +66,8 @@ module.exports = member => {
         await sentEmbed.react("💀");
         await sentEmbed.react("👸");
         await sentEmbed.react("👑");
+        await sentEmbed.react("🗡");
+        await sentEmbed.react("👻");
       });
   } else {
     console.log(`No suitable channel found`);

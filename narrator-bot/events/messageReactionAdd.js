@@ -36,6 +36,12 @@ module.exports = async (client, reaction, user) => {
             .get(userId)
             .setNickname("Koning Duncan");
           break;
+        case "🗡":
+          reaction.message.guild.members.get(userId).setNickname("Macduff");
+          break;
+        case "👻":
+          reaction.message.guild.members.get(userId).setNickname("Banquo");
+          break;
       }
       // async
       await reaction.message.delete();

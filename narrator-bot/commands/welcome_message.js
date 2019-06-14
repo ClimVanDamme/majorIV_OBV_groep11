@@ -32,12 +32,16 @@ module.exports = message => {
       `👑 Koning Duncan`,
       `"Ik ben een vaderfiguur, maar wel wat naïef."`
     )
+    .addField(`🗡 Macduff`, `"Voor mijn gezin moet je door mij."`)
+    .addField(`👻 Banquo`, `"Van mij raak je nog niet zo makkelijk af."`)
     .setColor(`#C4DDE9`);
   // send
   message.channel.send({ embed: charEmbed }).then(async sentEmbed => {
     await sentEmbed.react("💀");
     await sentEmbed.react("👸");
     await sentEmbed.react("👑");
+    await sentEmbed.react("🗡");
+    await sentEmbed.react("👻");
   });
 
   // Delete user message

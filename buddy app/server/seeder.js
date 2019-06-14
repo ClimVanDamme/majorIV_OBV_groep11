@@ -25,10 +25,10 @@ const shows = [
     length: "180"
   },
   {
-    title: "Bach Studies",
+    title: "Rasa",
     description:
-      "Ballet Vlaanderen haalt met de Franse choreograaf Benjamin Millepied een van de meest gerenommeerde hedendaagse balletchoreografen voor het eerst naar België. Hij creëert voor het eerst een avondvullend werk gebaseerd op werk van Johann Sebastian Bach. Het belooft een unieke, abstracte en toch hoogst emotionele balletavond te worden, gecreëerd door een van de meest innovatieve balletchoreografen van het moment.",
-    date: "2019-07-19 20:00:00",
+      "De Argentijnse choreograaf Daniel Proietto onderzoekt in zijn hedendaagse interpretatie van het beroemde La Bayadère de kolonialistische blik op het Verre Oosten die dit 19de-eeuwse Russische sprookje domineert. Hij verbindt dit met filosofieën uit de Indische cultuur en de rijkdom van het Indische culturele erfgoed.",
+    date: "2020-01-25 20:00:00",
     category: "Ballet",
     length: "105"
   }
@@ -40,7 +40,7 @@ const characters = [
     traits: ["Man", "Tiran", "Lady Macbeth"],
     personality: "Macbeth heeft veel ambitie en veel moed.",
     story:
-      "Mactbeth krijgt een voorspelling van drie heksen dat hij op een dag koning van Schotland zal zijn. Hij heeft koning Duncan vermoord.",
+      "Mactbeth krijgt de voorspelling van drie heksen dat hij op een dag koning van Schotland zal zijn. Hij heeft koning Duncan vermoord.",
     summary: ["moedig", "Schotse generaal", "Koning Duncan vermoord"],
     quote: "Zoek geen ruzie met mij, want er is een kans dat ik je vermoord.",
     show_id: shows[0]._id
@@ -87,12 +87,23 @@ const characters = [
     show_id: shows[0]._id
   },
   {
-    name: "Danser 1",
-    traits: ["Man", "Rechtvaardig", "Warm gezin"],
-    personality: "Danser 1 is goed",
-    story: "Danser 1 is de beste",
-    summary: ["Rechtvaardig", "Gezin uitgemoord", "Held"],
-    quote: "Dans met mij.",
+    name: "Nikaya",
+    traits: ["Vrouw", "Trouw", "Impulsief"],
+    personality: "Trouw tot aan de dood",
+    story:
+      "Nikaya is een tempeldanseres die eeuwige liefde en trouw beloofd heeft aan Solor. Ze doet een impulsieve moordpoging op haar rivale. Later in het verhaal wordt ze tijdens een valstrik gebeten door een giftige slang.",
+    summary: ["Trouw", "Moordpoging", "Gebeten door slang"],
+    quote: "In het hiernamaals kunnen we wel samen zijn.",
+    show_id: shows[1]._id
+  },
+  {
+    name: "Solor",
+    traits: ["Man", "Krijger", "Verloofd met dochter Radja"],
+    personality: "Kan zijn eeuwige liefde niet vergeten.",
+    story:
+      "Solor is een veldheer die eeuwige liefde en trouw beloofd heeft aan Nikaya. Hij is echter verloofd met Gamzatti, de dochter van de Radja. Zij willen Nikaya dood. Na een valstrik met een slang slager ze hierin en belandt Solor in een depressie. Bij het huwelijk tussen Solor en Gamzatti nemen de goden wraak.",
+    summary: ["Trouw", "Depressie", "Beroofd van eeuwige liefde"],
+    quote: "Liefde kan pijn doen.",
     show_id: shows[1]._id
   }
 ].map(item => ({ ...item, _id: mongoose.Types.ObjectId() }));

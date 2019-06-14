@@ -19,6 +19,10 @@ const ShowDetails = ({
   const [ownCharacter, setOwnCharacter] = useState({});
   // const connection = getConnection(show.id);
   const colorClass = show.title.replace(/\s+/g, `-`).toLowerCase();
+  const characterColor = `${show.title
+    .replace(/\s+/g, `-`)
+    .toLowerCase()}Color`;
+
   const showImage = `${
     process.env.PUBLIC_URL
   }/assets/img/shows/${show.title.replace(/\s+/g, ``).toLowerCase()}.jpg`;
@@ -176,7 +180,7 @@ const ShowDetails = ({
           {show.characters.map(character => (
             <div
               key={character.name}
-              className={`${styles.characterItem} ${styles.characterColor}`}
+              className={`${styles.characterItem} ${styles[characterColor]}`}
             >
               <img
                 className={styles.characterImg}
